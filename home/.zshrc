@@ -61,6 +61,9 @@ plugins=(git stack)
 
 source $ZSH/oh-my-zsh.sh
 
+# Emacsclient that automatically loads emacs in daemon mode
+alias ec='emacsclient --alternate-editor='''
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
