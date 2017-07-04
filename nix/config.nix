@@ -41,6 +41,7 @@
         html-tidy
         neovim
         nodePackages.tern
+        sbt
         stack
         travis
         wget
