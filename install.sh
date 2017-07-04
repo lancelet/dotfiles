@@ -88,7 +88,7 @@ if egrep -q "${HOME}/[.]nix-profile/bin/zsh" /etc/shells; then
     log "${zsh_nix} exists in /etc/shells"
 else
     log "Adding ${zsh_nix} to /etc/shells"
-    sudo bash -c 'echo "${zsh_nix}" >> /etc/shells'
+    sudo bash -c "echo "${zsh_nix}" >> /etc/shells"
 fi
 if [ "${SHELL}" == "${zsh_nix}" ]; then
     log "Shell is already set to Nix zsh"

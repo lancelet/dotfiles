@@ -92,3 +92,39 @@ alias ec='emacsclient --alternate-editor='''
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+#### PROXY SETTINGS ####
+
+# Start cntlm
+function cntlmon {
+    cntlm_config=~/.etc/cntlm.conf
+    cntlm -c "${cntlm_config}"
+}
+
+# Enables proxy
+function proxyon {
+    export HTTP_PROXY=http://127.0.0.1:3128
+    export http_proxy=$HTTP_PROXY
+    export HTTPS_PROXY=$HTTP_PROXY
+    export https_proxy=$HTTP_PROXY
+}
+
+# Disables proxy
+function proxyoff {
+    unset HTTP_PROXY
+    unset http_proxy
+    unset HTTPS_PROXY
+    unset https_proxy
+}
+
+# Turns on wifi
+function wifion {
+    proxyoff
+    networksetup -setairportpower en0 on
+}
+
+# Turns off wifi
+function wifioff {
+    proxyon
+    networksetup -setairportpower en0 off
+}
