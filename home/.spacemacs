@@ -281,7 +281,7 @@ It should only modify the values of Spacemacs settings."
    ;;                       text-mode
    ;;   :size-limit-kb 1000)
    ;; (default nil)
-   dotspacemacs-line-numbers 'relative
+   dotspacemacs-line-numbers nil
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
    dotspacemacs-folding-method 'evil
@@ -361,11 +361,11 @@ before packages are loaded."
   (setq-default powerline-default-separator 'nil)
 
   ;; Fill column indicator
-  (setq-default fci-rule-color "gray17")
+  (setq-default fci-rule-color "color-240")
   (setq-default fci-rule-width 3)
 
   ;; Line numbering format
-  (setq-default linum-relative-format "%3s ")
+  ;; (setq-default linum-relative-format "%3s ")
 
   ;; Ensime
   (setq-default ensime-startup-notification nil)
