@@ -52,3 +52,8 @@ function nixconfig_ln() {
     ln -sf "${src}" "${tgt}"
 }
 nixconfig_ln
+
+# Update Nix
+log 'Updating Nix'
+nix-channel --update
+nix-env -iA nixpkgs.coreEnv
