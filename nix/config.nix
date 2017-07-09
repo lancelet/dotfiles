@@ -39,6 +39,7 @@
         emacs25Macport
         git
         html-tidy
+	ncurses
         neovim
         nodePackages.tern
         sbt
