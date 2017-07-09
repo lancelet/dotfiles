@@ -40,6 +40,7 @@
         git
         html-tidy
 	ncurses
+	ncurses.dev
         neovim
         nodePackages.tern
         sbt
