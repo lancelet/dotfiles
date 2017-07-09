@@ -48,6 +48,7 @@
         travis
         wget
         which
+	youtube-dl
         zsh
       ];
     };
