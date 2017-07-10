@@ -3,6 +3,7 @@ if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]
 then
     . ~/.nix-profile/etc/profile.d/nix.sh
 fi
+export TERMINFO=~/.nix-profile/share/terminfo
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
