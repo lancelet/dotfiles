@@ -44,6 +44,7 @@
         neovim
         nodePackages.tern
         sbt
+        scala
         stack
         travis
         wget
