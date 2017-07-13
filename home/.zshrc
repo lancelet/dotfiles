@@ -73,6 +73,9 @@ alias gsbt="JAVA_OPTS='' SBT_OPTS='${GSBT_OPTS}' sbt"
 LSBT_OPTS="${GSBT_OPTS} -Dsbt.override.build.repos=true -Dsbt.repository.config=${HOME}/workspace/tooling.repositories/repositories"
 alias lsbt="JAVA_OPTS='' SBT_OPTS='${LSBT_OPTS}' sbt"
 
+# Brings "work secrets" into scope as environment variables
+alias work-secrets='ansible-vault view ${HOME}/.secrets/work.sh.encrypted | source /dev/stdin'
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"

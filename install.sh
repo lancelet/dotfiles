@@ -35,6 +35,7 @@ function silentpopd() {
 # Link dotfiles
 dotfiles=( '.spacemacs' \
            '.zshrc'     \
+           '.secrets'   \
          )
 function dotfile_ln() {
     local src="${home_dir}/$1"
