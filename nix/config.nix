@@ -39,17 +39,18 @@
         emacs25Macport
         git
         html-tidy
-	ncurses
-	ncurses.dev
+        ncurses
+        ncurses.dev
         neovim
         nodePackages.tern
         sbt
         scala
         stack
         travis
+        vault
         wget
         which
-	youtube-dl
+        youtube-dl
         zsh
       ];
     };
