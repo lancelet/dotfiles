@@ -65,6 +65,14 @@ source $ZSH/oh-my-zsh.sh
 # Emacsclient that automatically loads emacs in daemon mode
 alias ec='emacsclient --alternate-editor='''
 
+# SBT using global repository settings
+GSBT_OPTS='-Xmx4g -XX:+CMSClassUnloadingEnabled -XX:+UseConcMarkSweepGC -Dsbt.log.format=true'
+alias gsbt="JAVA_OPTS='' SBT_OPTS='${GSBT_OPTS}' sbt"
+
+# SBT using tooling.repositories settings
+LSBT_OPTS="${GSBT_OPTS} -Dsbt.override.build.repos=true -Dsbt.repository.config=${HOME}/workspace/tooling.repositories/repositories"
+alias lsbt="JAVA_OPTS='' SBT_OPTS='${LSBT_OPTS}' sbt"
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
