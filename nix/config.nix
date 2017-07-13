@@ -33,6 +33,7 @@
       name = "coreEnv";
       paths = [
         ag
+        ansible
         cmake
         cntlm
         curl
