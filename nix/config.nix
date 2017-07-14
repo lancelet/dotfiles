@@ -40,10 +40,12 @@
         emacs25Macport
         git
         html-tidy
+        maven
         ncurses
         ncurses.dev
         neovim
         nodePackages.tern
+        python36Packages.virtualenv
         sbt
         scala
         stack
