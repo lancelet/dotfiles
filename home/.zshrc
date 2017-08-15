@@ -71,7 +71,7 @@ alias ec='emacsclient --alternate-editor='''
 # SBT using global repository settings
 GJAVA_OPTS='-Xmx4g -XX:+CMSClassUnloadingEnabled -XX:+UseConcMarkSweepGC'
 GSBT_OPTS='-Dsbt.log.format=true'
-alias gsbt="JAVA_OPTS='${GJAVA_OPTS}' SBT_OPTS='${GSBT_OPTS}' sbt -J-Xmx4g"
+alias gsbt="JAVA_OPTS='${GJAVA_OPTS}' SBT_OPTS='${GSBT_OPTS}' sbt"
 
 # SBT using tooling.repositories settings
 LJAVA_OPTS="${GJAVA_OPTS}"
