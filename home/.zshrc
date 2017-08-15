@@ -69,7 +69,7 @@ source $ZSH/oh-my-zsh.sh
 alias ec='emacsclient --alternate-editor='''
 
 # SBT using global repository settings
-GCMD_OPTS='-J-Xmx4g -J-XX:+CMSClassUnloadingEnabled -J-XX:+UseConcMarkSweepGC -J-Xss8M'
+GCMD_OPTS='-J-Xmx4g -J-XX:+CMSClassUnloadingEnabled -J-XX:+UseConcMarkSweepGC -J-Xss2M'
 GSBT_OPTS=''
 GJAVA_OPTS=''
 alias gsbt="JAVA_OPTS='${GJAVA_OPTS}' SBT_OPTS='${GSBT_OPTS}' sbt ${GCMD_OPTS}"
