@@ -69,12 +69,14 @@ source $ZSH/oh-my-zsh.sh
 alias ec='emacsclient --alternate-editor='''
 
 # SBT using global repository settings
-GSBT_OPTS='-Xmx4g -XX:+CMSClassUnloadingEnabled -XX:+UseConcMarkSweepGC -Dsbt.log.format=true'
-alias gsbt="JAVA_OPTS='' SBT_OPTS='${GSBT_OPTS}' sbt"
+GJAVA_OPTS='-Xmx4g -XX:+CMSClassUnloadingEnabled -XX:+UseConcMarkSweepGC'
+GSBT_OPTS='-Dsbt.log.format=true'
+alias gsbt="JAVA_OPTS='${GJAVA_OPTS}' SBT_OPTS='${GSBT_OPTS}' sbt -J-Xmx4g"
 
 # SBT using tooling.repositories settings
+LJAVA_OPTS="${GJAVA_OPTS}"
 LSBT_OPTS="${GSBT_OPTS} -Dsbt.override.build.repos=true -Dsbt.repository.config=${HOME}/workspace/tooling.repositories/repositories"
-alias lsbt="JAVA_OPTS='' SBT_OPTS='${LSBT_OPTS}' sbt"
+alias lsbt="JAVA_OPTS='${LJAVA_OPTS}' SBT_OPTS='${LSBT_OPTS}' sbt"
 
 # Brings "work secrets" into scope as environment variables
 alias work-secrets='ansible-vault view ${HOME}/.secrets/work.sh.encrypted | source /dev/stdin'
