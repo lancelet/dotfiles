@@ -68,6 +68,12 @@ source $ZSH/oh-my-zsh.sh
 # Emacsclient that automatically loads emacs in daemon mode
 alias ec='emacsclient --alternate-editor='''
 
+# Java home location
+if [ "$(hostname)" = 'C02MC13TFD58' ]; then
+    JAVA_HOME='/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home'
+    export JAVA_HOME
+fi
+
 # SBT using global repository settings
 GCMD_OPTS='-J-Xmx4g -J-XX:+CMSClassUnloadingEnabled -J-XX:+UseConcMarkSweepGC -J-Xss2M'
 GSBT_OPTS=''
