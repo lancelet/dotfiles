@@ -50,6 +50,7 @@
         scala
         stack
         travis
+        tree
         vault
         wget
         which
