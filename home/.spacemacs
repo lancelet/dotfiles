@@ -364,8 +364,8 @@ before packages are loaded."
   (setq-default powerline-default-separator 'nil)
 
   ;; Fill column indicator
-  (setq-default fci-rule-color "color-240")
-  (setq-default fci-rule-width 3)
+  (setq-default fci-rule-color "#090909")
+  (setq-default fci-rule-width 1)
 
   ;; Line numbering format
   ;; (setq-default linum-relative-format "%3s ")
