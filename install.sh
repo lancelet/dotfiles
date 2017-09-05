@@ -52,6 +52,7 @@ if [ ! -d '/nix' ]; then
 else
     log "/nix directory exists; not re-installing nix"
 fi
+. ~/.nix-profile/etc/profile.d/nix.sh
 
 # Copy the nix config across
 mkdir -p "${HOME}/.nixpkgs"
@@ -71,6 +72,10 @@ if [ -z ${NO_NIX_UPDATE+x} ]; then
 else
     log 'NO_NIX_UPDATE was set; not updating Nix'
 fi
+
+# TEMPORARY: Link /etc/ssl/cert.pem to $NIX_SSL_CERT_FILE (for curl)
+log "TEMPORARY: linking /etc/ssl/cert.pem to ${NIX_SSL_CERT_FILE} - sorry, requires sudo"
+sudo -- sh -c "mkdir -p /etc/ssl; ln -s ${NIX_SSL_CERT_FILE} /etc/ssl/cert.pem"
 
 # Install oh-my-zsh if necessary
 if [ ! -d "${HOME}/.oh-my-zsh" ]; then
