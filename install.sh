@@ -74,6 +74,7 @@ else
 fi
 
 # TEMPORARY: Link /etc/ssl/cert.pem to $NIX_SSL_CERT_FILE (for curl)
+#   Issue: https://github.com/NixOS/nixpkgs/issues/8247
 log "TEMPORARY: linking /etc/ssl/cert.pem to ${NIX_SSL_CERT_FILE} - sorry, requires sudo"
 sudo -- sh -c "mkdir -p /etc/ssl; ln -s ${NIX_SSL_CERT_FILE} /etc/ssl/cert.pem"
 
