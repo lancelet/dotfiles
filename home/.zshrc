@@ -1,9 +1,5 @@
-# Nix
-if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]
-then
-    . ~/.nix-profile/etc/profile.d/nix.sh
-fi
-export TERMINFO=~/.nix-profile/share/terminfo
+# Source the Nix daemon stuff
+. /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
 
 export PATH=$HOME/.bin:$HOME/.local/bin:$PATH
 

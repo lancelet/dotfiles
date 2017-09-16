@@ -51,7 +51,7 @@
         stack
         travis
         tree
-        vault
+#        vault # requires go; fails install
         wget
         which
         youtube-dl

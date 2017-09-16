@@ -52,7 +52,13 @@ if [ ! -d '/nix' ]; then
 else
     log "/nix directory exists; not re-installing nix"
 fi
-. ~/.nix-profile/etc/profile.d/nix.sh
+set +u # Must allow undefined variables temporarily for the nix-daemon.sh script
+. /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+set -u
+
+# Add Nix channel nixpkgs-17.09-darwin
+log "Adding Nix channel to nixpkgs-17.09-darwin"
+nix-channel --add https://nixos.org/channels/nixpkgs-17.09-darwin nixpkgs-17.09-darwin
 
 # Copy the nix config across
 mkdir -p "${HOME}/.nixpkgs"
