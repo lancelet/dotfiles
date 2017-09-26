@@ -38,6 +38,7 @@
         cntlm
         curl
         emacs25Macport
+	ffmpeg
         git
         html-tidy
         maven
