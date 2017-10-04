@@ -49,7 +49,8 @@
         python36Packages.virtualenv
         sbt
         scala
-#        stack
+	shellcheck
+        stack
         travis
         tree
 #        vault # requires go; fails install
