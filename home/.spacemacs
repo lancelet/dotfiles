@@ -37,6 +37,7 @@ This function should only modify configuration layer settings."
      ivy
      auto-completion
      better-defaults
+     elm
      emacs-lisp
      git
      markdown
