@@ -35,6 +35,7 @@
         ag
         ansible
         aspell
+        aspellDicts.en
         cmake
         cntlm
         curl
