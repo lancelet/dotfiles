@@ -361,6 +361,10 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
 
+  ;; Restore git gutter modified sign
+  (setq-default git-gutter:modified-sign "m")
+  (setq-default git-gutter+-modified-sign "m")
+
   ;; No powerline separator
   (setq-default powerline-default-separator 'nil)
 
