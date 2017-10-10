@@ -34,11 +34,12 @@
       paths = [
         ag
         ansible
+        aspell
         cmake
         cntlm
         curl
         emacs25Macport
-	ffmpeg
+        ffmpeg
         git
         html-tidy
         maven
@@ -49,7 +50,7 @@
         python36Packages.virtualenv
         sbt
         scala
-	shellcheck
+        shellcheck
         stack
         travis
         tree
