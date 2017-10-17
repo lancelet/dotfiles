@@ -144,14 +144,18 @@ It should only modify the values of Spacemacs settings."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(ample-flat
+   dotspacemacs-themes '(zenburn
+                         tsdh-dark
+                         darkmine
+                         apropospriate-dark
+                         ample-flat
                          spacemacs-dark
                          spacemacs-light)
    ;; If non-nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
-   ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("Hack"
+   ;; quickly tweak the mode-line size t make separators look not too crappy.
+   dotspacemacs-default-font '("Fira Code"
                                :size 18
                                :weight normal
                                :width normal
@@ -362,6 +366,8 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
+
+  (setq-default mac-option-modifier 'meta)
 
   ;; Restore git gutter modified sign
   (setq-default git-gutter:modified-sign "m")
