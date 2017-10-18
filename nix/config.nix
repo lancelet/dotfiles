@@ -43,6 +43,7 @@
         ffmpeg
         git
         html-tidy
+        leiningen
         maven
         ncurses
         ncurses.dev
