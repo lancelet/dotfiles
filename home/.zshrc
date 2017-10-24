@@ -160,5 +160,18 @@ function mcaon {
     sudo /usr/local/McAfee/StatefulFirewall/bin/StatefullFirewallControl start
 }
 
+# Log into VirtualBox container
+function vbox {
+    # Start the VirtualBox container
+    local vbm='/Applications/VirtualBox.app/Contents/MacOS/VBoxManage'
+    if [ -z "$($vbm showvminfo NixOS | grep 'State:.*running')" ]; then
+        echo 'Starting NixOS VirtualBox image'
+        $vbm startvm 'NixOS' --type headless
+    else
+        echo 'NixOS VirtualBox image is running'
+    fi
 
+    # ssh into the container
+    ssh -p 2222 jsm@127.0.0.1
+}
 
