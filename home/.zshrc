@@ -149,3 +149,16 @@ function wifioff {
     proxyon
     networksetup -setairportpower en0 off
 }
+
+# Turns off McAffee
+function mcaoff {
+    sudo /usr/local/McAfee/StatefulFirewall/bin/StatefullFirewallControl stop
+}
+
+# Turns on McAffee
+function mcaon {
+    sudo /usr/local/McAfee/StatefulFirewall/bin/StatefullFirewallControl start
+}
+
+
+
