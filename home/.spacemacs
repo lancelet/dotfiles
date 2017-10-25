@@ -29,18 +29,19 @@ This function should only modify configuration layer settings."
    dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(;; ----------------------------------------------------------------
+   '(
+     ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     ivy
+     helm
      auto-completion
      better-defaults
-     elm
      emacs-lisp
      git
      markdown
+     neotree
      org
      (shell :variables
             shell-default-height 30
@@ -51,9 +52,11 @@ This function should only modify configuration layer settings."
      ;; --- My extra layers ---
      csv
      dash
+     elm
      (haskell :variables
               haskell-completion-backend 'intero
               haskell-process-type 'stack-ghci)
+     html
      idris
      clojure
      scala
@@ -64,9 +67,6 @@ This function should only modify configuration layer settings."
      ruby
      nixos
      osx
-     restclient
-     python
-     html
      themes-megapack
      )
    ;; List of additional packages that will be installed without being
@@ -103,6 +103,7 @@ It should only modify the values of Spacemacs settings."
    ;; (default t)
    dotspacemacs-elpa-https nil
    ;; Maximum allowed time in seconds to contact an ELPA repository.
+   ;; (default 5)
    dotspacemacs-elpa-timeout 5
    ;; If non-nil then spacemacs will check for updates at startup
    ;; when the current branch is not `develop'. Note that checking for
@@ -111,7 +112,7 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-check-for-update nil
    ;; If non-nil, a form that evaluates to a package directory. For example, to
    ;; use different package directories for different Emacs versions, set this
-   ;; to `emacs-version'.
+   ;; to `emacs-version'. (default nil)
    dotspacemacs-elpa-subdirectory nil
    ;; One of `vim', `emacs' or `hybrid'.
    ;; `hybrid' is like `vim' except that `insert state' is replaced by the
@@ -137,7 +138,7 @@ It should only modify the values of Spacemacs settings."
    ;; `spacemacs-buffer-startup-lists-length' takes effect.
    dotspacemacs-startup-lists '((recents . 5)
                                 (projects . 7))
-   ;; True if the home buffer should respond to resize events.
+   ;; True if the home buffer should respond to resize events. (default t)
    dotspacemacs-startup-buffer-responsive t
    ;; Default major mode of the scratch buffer (default `text-mode')
    dotspacemacs-scratch-mode 'text-mode
@@ -145,22 +146,19 @@ It should only modify the values of Spacemacs settings."
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(zenburn
-                         tsdh-dark
-                         darkmine
-                         apropospriate-dark
-                         ample-flat
                          spacemacs-dark
                          spacemacs-light)
    ;; If non-nil the cursor color matches the state color in GUI Emacs.
+   ;; (default t)
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
-   ;; quickly tweak the mode-line size t make separators look not too crappy.
+   ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Fira Code"
                                :size 18
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
-   ;; The leader key
+   ;; The leader key (default "SPC")
    dotspacemacs-leader-key "SPC"
    ;; The key used for Emacs commands `M-x' (after pressing on the leader key).
    ;; (default "SPC")
@@ -203,7 +201,7 @@ It should only modify the values of Spacemacs settings."
    ;; start. (default nil)
    dotspacemacs-auto-resume-layouts nil
    ;; If non-nil, auto-generate layout name when creating new layouts. Only has
-   ;; effect when using the "jump to layout by number" commands.
+   ;; effect when using the "jump to layout by number" commands. (default nil)
    dotspacemacs-auto-generate-layout-names nil
    ;; Size (in MB) above which spacemacs will prompt to open the large file
    ;; literally to avoid performance issues. Opening a file literally means that
@@ -229,8 +227,9 @@ It should only modify the values of Spacemacs settings."
    ;; source settings. Else, disable fuzzy matching in all sources.
    ;; (default 'always)
    dotspacemacs-helm-use-fuzzy 'always
-   ;; If non-nil the paste micro-state is enabled. When enabled pressing `p'
-   ;; several times cycle between the kill ring content. (default nil)
+   ;; If non-nil, the paste transient-state is enabled. While enabled, pressing
+   ;; `p' several times cycles through the elements in the `kill-ring'.
+   ;; (default nil)
    dotspacemacs-enable-paste-transient-state nil
    ;; Which-key delay in seconds. The which-key buffer is the popup listing
    ;; the commands bound to the current keystroke sequence. (default 0.4)
@@ -273,7 +272,7 @@ It should only modify the values of Spacemacs settings."
    ;; If non-nil show the color guide hint for transient state keys. (default t)
    dotspacemacs-show-transient-state-color-guide t
    ;; If non-nil unicode symbols are displayed in the mode line. (default t)
-   dotspacemacs-mode-line-unicode-symbols nil
+   dotspacemacs-mode-line-unicode-symbols t
    ;; If non-nil smooth scrolling (native-scrolling) is enabled. Smooth
    ;; scrolling overrides the default behavior of Emacs which recenters point
    ;; when it reaches the top or bottom of the screen. (default t)
@@ -312,7 +311,7 @@ It should only modify the values of Spacemacs settings."
    ;; List of search tool executable names. Spacemacs uses the first installed
    ;; tool of the list. Supported tools are `rg', `ag', `pt', `ack' and `grep'.
    ;; (default '("rg" "ag" "pt" "ack" "grep"))
-   dotspacemacs-search-tools '("ag" "grep")
+   dotspacemacs-search-tools '("rg" "ag" "pt" "ack" "grep")
    ;; The default package repository used if no explicit repository has been
    ;; specified with an installed package.
    ;; Not used for now. (default nil)
@@ -333,6 +332,7 @@ It should only modify the values of Spacemacs settings."
    ;; %n - Narrow if appropriate
    ;; %z - mnemonics of buffer, terminal, and keyboard coding systems
    ;; %Z - like %z, but including the end-of-line format
+   ;; (default "%I@%S")
    dotspacemacs-frame-title-format "%I@%S"
    ;; Format specification for setting the icon title format
    ;; (default nil - same as frame-title-format)
@@ -367,38 +367,9 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
 
-  (setq-default mac-option-modifier 'meta)
-
   ;; Restore git gutter modified sign
   (setq-default git-gutter:modified-sign "m")
   (setq-default git-gutter+-modified-sign "m")
-
-  ;; No powerline separator
-  (setq-default powerline-default-separator 'nil)
-
-  ;; Fill column indicator
-  (setq-default fci-rule-color "#090909")
-  (setq-default fci-rule-width 1)
-
-  ;; Line numbering format
-  ;; (setq-default linum-relative-format "%3s ")
-
-  ;; Ensime
-  (setq-default ensime-startup-notification nil)
-  (setq-default ensime-startup-snapshot-notification nil)
-  (setq-default ensime-sbt-command "lsbt"
-                sbt:program-name "lsbt")
-  (add-to-list 'exec-path "/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/bin")
-
-  ;; Bind "[SPC] m f" to a command that runs aeson-pretty on the current buffer
-  ;; and region in json-mode. aeson-pretty is a Haskell program.
-  (defun aeson-pretty ()
-    (interactive)
-    (shell-command-on-region (point-min)
-                             (point-max)
-                             "aeson-pretty"
-                             't 't))
-  (spacemacs/set-leader-keys-for-major-mode 'json-mode "f" 'aeson-pretty)
 
   (add-hook 'haskell-mode-hook
             (lambda ()
@@ -418,47 +389,11 @@ before packages are loaded."
               (setq-default haskell-indentation-where-post-offset 2)
               ))
 
-  (add-hook 'scala-mode-hook
-            (lambda ()
-              (turn-on-fci-mode)
-              (show-paren-mode)
-              (setq-default scala-indent:use-javadoc-style t)
-              (setq-default fill-column 100)
-              ;; turn off electric-indent-mode
-              (electric-indent-local-mode -1)
-              ))
-
-  (add-hook 'java-mode-hook
-            (lambda ()
-              (turn-on-fci-mode)
-              (show-paren-mode)
-              ;; turn off electric-indent-mode
-              (electric-indent-local-mode -1)
-              ))
-
-  (add-hook 'json-mode-hook
-            (lambda ()
-              (turn-on-fci-mode)
-              (electric-indent-local-mode -1)
-              (show-paren-mode)
-              (set-face-attribute 'sp-pair-overlay-face nil :inherit nil)
-              ))
-
-  (add-hook 'clojure-mode-hook
-            (lambda ()
-              (turn-on-fci-mode)
-              ;; backtick pairing when inside Clojure strings (for Markdown
-              ;; quoting in strings)
-              (sp-local-pair 'clojure-mode
-                             "`" "`"
-                             :when '(sp-in-string-p))))
-
   (add-hook 'markdown-mode-hook
             (lambda ()
               (custom-set-variables
                '(markdown-header-scaling nil)
                '(markdown-header-scaling-values '(1.0 1.0 1.0 1.0 1.0 1.0)))))
-
 
   )
 
