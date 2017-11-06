@@ -30,45 +30,40 @@ This function should only modify configuration layer settings."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
-     ;; ----------------------------------------------------------------
-     ;; Example of useful layers you may want to use right away.
-     ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
-     ;; `M-m f e R' (Emacs style) to install them.
-     ;; ----------------------------------------------------------------
-     helm
      auto-completion
      better-defaults
+     clojure
+     csv
+     dash
+     docker
+     elm
      emacs-lisp
      git
+     (haskell :variables
+              haskell-completion-backend 'intero
+              haskell-process-type 'stack-ghci)
+     helm
+     html
+     ibuffer
+     idris
+     javascript
      markdown
      neotree
+     nixos
      org
+     osx
+     ruby
+     rust
+     scala
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
      spell-checking
      syntax-checking
-     version-control
-     ;; --- My extra layers ---
-     csv
-     dash
-     elm
-     (haskell :variables
-              haskell-completion-backend 'intero
-              haskell-process-type 'stack-ghci)
-     html
-     idris
-     clojure
-     scala
-     javascript
-     yaml
-     ibuffer
-     docker
-     ruby
-     rust
-     nixos
-     osx
      themes-megapack
+     treemacs
+     version-control
+     yaml
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
