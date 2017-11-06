@@ -62,6 +62,7 @@ plugins=(git stack)
 source $ZSH/oh-my-zsh.sh
 
 # Emacsclient that automatically loads emacs in daemon mode
+alias emacs="$HOME/.nix-profile/Applications/Emacs.app/Contents/MacOS/Emacs"
 alias ec='emacsclient --alternate-editor='''
 
 # Java home location
