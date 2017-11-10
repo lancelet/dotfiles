@@ -52,7 +52,7 @@
         openssl
         openssl.dev  # for Laurence's confluence sync tool
         python36Packages.virtualenv
-        sbt
+#        sbt
         scala
         shellcheck
         stack
