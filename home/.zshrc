@@ -78,9 +78,9 @@ GJAVA_OPTS=''
 alias gsbt="JAVA_OPTS='${GJAVA_OPTS}' SBT_OPTS='${GSBT_OPTS}' sbt ${GCMD_OPTS}"
 
 # SBT using proxy
-GPROXYCMD_OPTS="$GCMD_OPTS"
+GPROXYCMD_OPTS="$GCMD_OPTS -J-Dhttp.proxyHost=127.0.0.1 -J-Dhttp.proxyPort=3128 -J-Dhttps.proxyHost=127.0.0.1 -J-Dhttps.proxyPort=3128"
 GPROXYSBT_OPTS=''
-GPROXYJAVA_OPTS='-Dhttp.proxyHost=127.0.0.1 -Dhttp.proxyPort=3128 -Dhttps.proxyHost=127.0.0.1 -Dhttps.proxyPort=3128'
+GPROXYJAVA_OPTS=''
 alias gsbt-proxy="JAVA_OPTS='${GPROXYJAVA_OPTS}' SBT_OPTS='${GPROXYSBT_OPTS}' sbt ${GPROXYCMD_OPTS}"
 
 # SBT using tooling.repositories settings

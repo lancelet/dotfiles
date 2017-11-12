@@ -40,7 +40,7 @@ This function should only modify configuration layer settings."
      emacs-lisp
      git
      (haskell :variables
-              haskell-completion-backend 'intero
+              haskell-completion-backend 'dante
               haskell-process-type 'stack-ghci)
      helm
      html
