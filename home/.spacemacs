@@ -397,6 +397,10 @@ before packages are loaded."
               ;; set fill column to 120
               (set-fill-column 120)
               ))
+  (setq-default dotspacemacs-configuration-layers
+                '(
+                  (scala :variables scala-indent:use-javadoc-style t)
+                  ))
 
   (add-hook 'markdown-mode-hook
             (lambda ()
