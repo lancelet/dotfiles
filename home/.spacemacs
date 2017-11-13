@@ -390,6 +390,14 @@ before packages are loaded."
               (setq-default haskell-indentation-where-post-offset 2)
               ))
 
+  (add-hook 'scala-mode-hook
+            (lambda ()
+              ;; turn on fill column indicator
+              (turn-on-fci-mode)
+              ;; set fill column to 120
+              (set-fill-column 120)
+              ))
+
   (add-hook 'markdown-mode-hook
             (lambda ()
               (custom-set-variables
