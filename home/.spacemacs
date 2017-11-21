@@ -54,7 +54,8 @@ This function should only modify configuration layer settings."
      osx
      ruby
      rust
-     scala
+     (scala :variables
+            scala-indent:use-javadoc-style t)
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
@@ -397,10 +398,6 @@ before packages are loaded."
               ;; set fill column to 120
               (set-fill-column 120)
               ))
-  (setq-default dotspacemacs-configuration-layers
-                '(
-                  (scala :variables scala-indent:use-javadoc-style t)
-                  ))
 
   (add-hook 'markdown-mode-hook
             (lambda ()
