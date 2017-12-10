@@ -40,9 +40,9 @@ dotfiles=( '.spacemacs'   \
          )
 function dotfile_ln() {
     local src="${home_dir}/$1"
-    local tgt="${HOME}/$1"
+    local tgt="${HOME}"
     log "Linking: ${tgt} -> ${src}"
-    ln -sf "${src}" "${tgt}"
+    ln -sf --target-directory "$tgt" "$src"
 }
 for dotfile in "${dotfiles[@]}"; do dotfile_ln "${dotfile}"; done
 
