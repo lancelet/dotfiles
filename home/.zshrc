@@ -1,7 +1,7 @@
 # Source the Nix daemon stuff
 . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
 
-export PATH=$HOME/.bin:$HOME/.local/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH:$HOME/.bin:$HOME/.local/bin:/usr/local/bin
 export PATH="$HOME/.cargo/bin:$PATH"  # Rust
 
 # Path to your oh-my-zsh installation.
