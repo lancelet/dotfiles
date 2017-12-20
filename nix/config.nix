@@ -43,8 +43,10 @@
         ffmpeg
         git
         html-tidy
-	idris
+        idris
         leiningen
+        libffi
+        llvm_4
         maven
         ncurses
         ncurses.dev
