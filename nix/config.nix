@@ -54,6 +54,7 @@
         nodePackages.tern
         openssl
         openssl.dev  # for Laurence's confluence sync tool
+        pkgconfig
         python36Packages.virtualenv
 #        sbt
         scala
