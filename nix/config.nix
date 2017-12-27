@@ -41,6 +41,7 @@
         curl
         emacs25Macport
         ffmpeg
+        fswatch
         git
         html-tidy
         idris
