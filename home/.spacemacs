@@ -40,7 +40,7 @@ This function should only modify configuration layer settings."
      emacs-lisp
      git
      (haskell :variables
-              haskell-completion-backend 'dante
+              haskell-completion-backend 'intero
               haskell-process-type 'stack-ghci)
      helm
      html
@@ -377,6 +377,8 @@ before packages are loaded."
             (lambda ()
               ;; turn on fill column indicator
               (turn-on-fci-mode)
+              ;; disable spell-checking
+              (setq-default spell-checking-enable-by-default nil)
               ;; turn off electric-indent-mode
               (electric-indent-local-mode -1)
               ;; before expressions in a Haskell layout list
