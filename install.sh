@@ -58,8 +58,8 @@ set +u # Must allow undefined variables temporarily for the nix-daemon.sh script
 set -u
 
 # Add Nix channel nixpkgs-17.09-darwin
-log "Adding Nix channel to nixpkgs-17.09-darwin"
-nix-channel --add https://nixos.org/channels/nixpkgs-17.09-darwin nixpkgs-17.09-darwin
+#log "Adding Nix channel to nixpkgs-17.09-darwin"
+#nix-channel --add https://nixos.org/channels/nixpkgs-17.09-darwin nixpkgs-17.09-darwin
 
 # Copy the nix config across
 mkdir -p "${HOME}/.nixpkgs"
@@ -124,8 +124,10 @@ set -euf -o pipefail
 # Install zsh astronaut theme
 log "Installing / updating zsh astronaut theme"
 silentpushd "${ZSH_CUSTOM}/themes"
-rm -f spaceship.zsh-theme
-curl -s -o spaceship.zsh-theme https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/spaceship.zsh
+git clone https://github.com/denysdovhan/spaceship-prompt.git spaceship-prompt
+ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+#rm -f spaceship.zsh-theme
+#curl -s -o spaceship.zsh-theme https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/spaceship.zsh
 silentpopd
 
 # Install / update spacemacs
