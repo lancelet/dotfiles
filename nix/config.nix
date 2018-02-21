@@ -41,13 +41,14 @@
         curl
         emacs25Macport
         ffmpeg
+	fish
         fswatch
         git
         html-tidy
         idris
         leiningen
         libffi
-        llvm_4
+        llvm_5
         maven
         ncurses
         ncurses.dev
@@ -67,7 +68,6 @@
         wget
         which
         youtube-dl
-        zsh
       ];
     };
 

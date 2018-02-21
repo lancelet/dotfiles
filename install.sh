@@ -33,10 +33,11 @@ function silentpopd() {
 }
 
 # Link dotfiles
-dotfiles=( '.spacemacs'   \
-           '.zshrc'       \
-           '.secrets'     \
-           '.aspell.conf' \
+dotfiles=( '.spacemacs'               \
+	   '.config/fish/config.fish' \
+	   '.config/fish/nix.fish'    \
+           '.secrets'                 \
+           '.aspell.conf'             \
          )
 function dotfile_ln() {
     local src="${home_dir}/$1"
@@ -89,46 +90,20 @@ else
     sudo -- sh -c "mkdir -p /etc/ssl; ln -s ${NIX_SSL_CERT_FILE} /etc/ssl/cert.pem"
 fi
 
-# Install oh-my-zsh if necessary
-if [ ! -d "${HOME}/.oh-my-zsh" ]; then
-    log "${HOME}/.oh-my-zsh was not found; installing oh-my-zsh"
-    git clone git://github.com/robbyrussell/oh-my-zsh.git "${HOME}/.oh-my-zsh"
+# Set shell to Nix's fish
+readonly fish_nix="${HOME}/.nix-profile/bin/fish"
+if egrep -q "${HOME}/[.]nix-profile/bin/fish" /etc/shells; then
+    log "${fish_nix} exists in /etc/shells"
 else
-    log "${HOME}/.oh-my-zsh exists; updating"
-    silentpushd "${HOME}/.oh-my-zsh"
-    git pull --quiet
-    silentpopd
+    log "Adding ${fish_nix} to /etc/shells"
+    sudo bash -c "echo "${fish_nix}" >> /etc/shells"
 fi
-
-# Set shell to Nix's zsh
-declare -r zsh_nix="${HOME}/.nix-profile/bin/zsh"
-if egrep -q "${HOME}/[.]nix-profile/bin/zsh" /etc/shells; then
-    log "${zsh_nix} exists in /etc/shells"
+if [ "${SHELL}" == "${fish_nix}" ]; then
+    log "Shell is already set to Nix fish"
 else
-    log "Adding ${zsh_nix} to /etc/shells"
-    sudo bash -c "echo "${zsh_nix}" >> /etc/shells"
+    log "Setting shell to ${fish_nix}"
+    chsh -s "${fish_nix}"
 fi
-if [ "${SHELL}" == "${zsh_nix}" ]; then
-    log "Shell is already set to Nix zsh"
-else
-    log "Setting shell to ${zsh_nix}"
-    chsh -s "${zsh_nix}"
-fi
-
-# Source zshrc
-log "Sourcing ${HOME}/.zshrc"
-set +euf +o pipefail
-source "${HOME}/.zshrc"
-set -euf -o pipefail
-
-# Install zsh astronaut theme
-log "Installing / updating zsh astronaut theme"
-silentpushd "${ZSH_CUSTOM}/themes"
-git clone https://github.com/denysdovhan/spaceship-prompt.git spaceship-prompt
-ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
-#rm -f spaceship.zsh-theme
-#curl -s -o spaceship.zsh-theme https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/spaceship.zsh
-silentpopd
 
 # Install / update spacemacs
 if [ ! -f "${HOME}/.emacs.d/spacemacs.mk" ]; then
