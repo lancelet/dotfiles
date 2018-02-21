@@ -105,6 +105,24 @@ else
     chsh -s "${fish_nix}"
 fi
 
+# Install "Oh My Fish" framework
+readonly omf_dir="${HOME}/.config/oh-my-fish"
+if [ ! -d "$omf_dir" ]; then
+    log "Cloning oh-my-fish git directory to $omf_dir"
+    silentpushd "${HOME}/.config"
+    git clone https://github.com/oh-my-fish/oh-my-fish
+    silendpopd
+else
+    log "oh-my-fish git directory exists at $omf_dir; updating"
+    silentpushd "$omf_dir"
+    git pull --quiet
+    silentpopd
+fi
+log "Executing oh-my-fish installation"
+silentpushd "$omf_dir"
+bin/install --offline --yes
+silentpopd
+
 # Install / update spacemacs
 if [ ! -f "${HOME}/.emacs.d/spacemacs.mk" ]; then
     log "Installing spacemacs"
