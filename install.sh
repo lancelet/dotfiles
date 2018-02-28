@@ -43,20 +43,20 @@ function dotfile_ln() {
     local src="${home_dir}/$1"
     local tgt="${HOME}/$1"
     log "Linking: $tgt -> $src"
-    ln -sfhF "$src" "$tgt"
+    ln -sfn "$src" "$tgt"
 }
 for dotfile in "${dotfiles[@]}"; do dotfile_ln "${dotfile}"; done
 
 # Install nix if necessary
-if [ ! -d '/nix' ]; then
-    log "/nix directory was not found: installing nix"
-    bash <(curl https://nixos.org/nix/install)
-else
-    log "/nix directory exists; not re-installing nix"
-fi
-set +u # Must allow undefined variables temporarily for the nix-daemon.sh script
-. /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
-set -u
+#if [ ! -d '/nix' ]; then
+#    log "/nix directory was not found: installing nix"
+#    bash <(curl https://nixos.org/nix/install)
+#else
+#    log "/nix directory exists; not re-installing nix"
+#fi
+#set +u # Must allow undefined variables temporarily for the nix-daemon.sh script
+#. /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+#set -u
 
 # Add Nix channel nixpkgs-17.09-darwin
 #log "Adding Nix channel to nixpkgs-17.09-darwin"
@@ -73,13 +73,13 @@ function nixconfig_ln() {
 nixconfig_ln
 
 # Update Nix
-if [ -z ${NO_NIX_UPDATE+x} ]; then
-    log 'Updating Nix'
-    nix-channel --update
-    nix-env -iA nixpkgs.coreEnv
-else
-    log 'NO_NIX_UPDATE was set; not updating Nix'
-fi
+#if [ -z ${NO_NIX_UPDATE+x} ]; then
+#    log 'Updating Nix'
+#    nix-channel --update
+#    nix-env -iA nixpkgs.coreEnv
+#else
+#    log 'NO_NIX_UPDATE was set; not updating Nix'
+#fi
 
 # TEMPORARY: Link /etc/ssl/cert.pem to $NIX_SSL_CERT_FILE (for curl)
 #   Issue: https://github.com/NixOS/nixpkgs/issues/8247
@@ -91,19 +91,19 @@ else
 fi
 
 # Set shell to Nix's fish
-readonly fish_nix="${HOME}/.nix-profile/bin/fish"
-if egrep -q "${HOME}/[.]nix-profile/bin/fish" /etc/shells; then
-    log "${fish_nix} exists in /etc/shells"
-else
-    log "Adding ${fish_nix} to /etc/shells"
-    sudo bash -c "echo "${fish_nix}" >> /etc/shells"
-fi
-if [ "${SHELL}" == "${fish_nix}" ]; then
-    log "Shell is already set to Nix fish"
-else
-    log "Setting shell to ${fish_nix}"
-    chsh -s "${fish_nix}"
-fi
+#readonly fish_nix="${HOME}/.nix-profile/bin/fish"
+#if egrep -q "${HOME}/[.]nix-profile/bin/fish" /etc/shells; then
+#    log "${fish_nix} exists in /etc/shells"
+#else
+#    log "Adding ${fish_nix} to /etc/shells"
+#    sudo bash -c "echo "${fish_nix}" >> /etc/shells"
+#fi
+#if [ "${SHELL}" == "${fish_nix}" ]; then
+#    log "Shell is already set to Nix fish"
+#else
+#    log "Setting shell to ${fish_nix}"
+#    chsh -s "${fish_nix}"
+#fi
 
 # Install "Oh My Fish" framework
 readonly omf_dir="${HOME}/.config/oh-my-fish"

@@ -1,6 +1,3 @@
-# NIX paths etc
-. $HOME/.config/fish/nix.fish
-
 # Haskell stack install path
 set -xg PATH $HOME/.local/bin $PATH
 
