@@ -35,7 +35,7 @@ function silentpopd() {
 # Link dotfiles
 dotfiles=( '.spacemacs'               \
 	   '.config/fish/config.fish' \
-	   '.config/fish/nix.fish'    \
+	   '.profile'                 \
            '.secrets'                 \
            '.aspell.conf'             \
          )
