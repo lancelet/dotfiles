@@ -23,8 +23,6 @@ function cntlmon
     cntlm -c $cntlm_config
     echo 'started cntlm: pid '(pgrep cntlm)
   end
-  setproxy
-  wifioff
 end
 
 # stop CNTLM
@@ -35,7 +33,6 @@ function cntlmoff
   else
     echo 'cntlm was not running'
   end
-  unsetproxy
 end
 
 # set proxy environment variables
@@ -66,12 +63,26 @@ end
 
 # turn on wifi
 function wifion
-  unsetproxy
   networksetup -setairportpower en0 on
 end
 
 # turn off wifi
 function wifioff
-  setproxy
   networksetup -setairportpower en0 off
+end
+
+###########
+# sbt stuff
+
+# Java home location
+if [ (hostname) = 'C02MC13TFD58' ]
+    set -xg JAVA_HOME '/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home'
+end
+
+# SBT using global repository settings
+function gsbt
+  set GCMD_OPTS '-J-Xmx4g -J-XX:+CMSClassUnloadingEnabled -J-XX:+UseConcMarkSweepGC -J-Xss2M'
+  set GSBT_OPTS ''
+  set GJAVA_OPTS ''
+  eval "env JAVA_OPTS='$GJAVA_OPTS' SBT_OPTS='$GSBT_OPTS' sbt $GCMD_OPTS $argv"
 end
