@@ -105,6 +105,17 @@ fi
 #    chsh -s "${fish_nix}"
 #fi
 
+# Install / update spacemacs
+if [ ! -f "${HOME}/.emacs.d/spacemacs.mk" ]; then
+    log "Installing spacemacs"
+    git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+else
+    log "Spacemacs has been installed already; updating"
+    silentpushd "${HOME}/.emacs.d"
+    git pull --quiet
+    silentpopd
+fi
+
 # Install "Oh My Fish" framework
 readonly omf_dir="${HOME}/.config/oh-my-fish"
 if [ ! -d "$omf_dir" ]; then
@@ -123,13 +134,3 @@ silentpushd "$omf_dir"
 bin/install --offline --yes
 silentpopd
 
-# Install / update spacemacs
-if [ ! -f "${HOME}/.emacs.d/spacemacs.mk" ]; then
-    log "Installing spacemacs"
-    git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
-else
-    log "Spacemacs has been installed already; updating"
-    silentpushd "${HOME}/.emacs.d"
-    git pull --quiet
-    silentpopd
-fi
