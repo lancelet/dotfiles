@@ -9,6 +9,11 @@ function emacs
   eval "$HOME/.nix-profile/Applications/Emacs.app/Contents/MacOS/Emacs $argv &"
 end
 
+# brings work secrets into scope as environment variables
+function work-secrets
+  eval "ansible-vault view $HOME/.secrets/work.fish.encrypted | source -"
+end
+
 # start CNTLM
 function cntlmon
   set cntlm_config "$HOME/.etc/cntlm.conf"
