@@ -1,0 +1,27 @@
+#+TITLE: DotEmacs
+#+AUTHOR: Jonathan Merritt
+
+* Bootstrap
+
+** Use better defaults
+
+Disable some of the UI elements that I don't use.
+
+#+BEGIN_SRC emacs-lisp
+(when window-system
+  (blink-cursor-mode 0)
+  (scroll-bar-mode 0)
+  (tool-bar-mode 0)
+  (tooltip-mode 0))
+#+END_SRC
+
+* Theme
+
+I use the =zenburn-theme=
+
+#+BEGIN_SRC emacs-lisp
+(use-package zenburn-theme
+  :demand t
+  :config
+  (load-theme 'zenburn t))
+#+END_SRC
