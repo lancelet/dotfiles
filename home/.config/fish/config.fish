@@ -9,6 +9,11 @@ function emacs
   eval "$HOME/.nix-profile/Applications/Emacs.app/Contents/MacOS/Emacs $argv &"
 end
 
+# new emacs setup alias
+function newmacs
+  eval "$HOME/.nix-profile/Applications/Emacs.app/Contents/MacOS/Emacs -Q -l $HOME/workspace/dotfiles/newmacs/init.el $argv &"
+end
+
 # brings work secrets into scope as environment variables
 function work-secrets
   eval "ansible-vault view $HOME/.secrets/work.fish.encrypted | source -"
