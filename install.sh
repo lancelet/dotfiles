@@ -90,31 +90,16 @@ else
     sudo -- sh -c "mkdir -p /etc/ssl; ln -s ${NIX_SSL_CERT_FILE} /etc/ssl/cert.pem"
 fi
 
-# Set shell to Nix's fish
-#readonly fish_nix="${HOME}/.nix-profile/bin/fish"
-#if egrep -q "${HOME}/[.]nix-profile/bin/fish" /etc/shells; then
-#    log "${fish_nix} exists in /etc/shells"
-#else
-#    log "Adding ${fish_nix} to /etc/shells"
-#    sudo bash -c "echo "${fish_nix}" >> /etc/shells"
-#fi
-#if [ "${SHELL}" == "${fish_nix}" ]; then
-#    log "Shell is already set to Nix fish"
-#else
-#    log "Setting shell to ${fish_nix}"
-#    chsh -s "${fish_nix}"
-#fi
-
 # Install / update spacemacs
-#if [ ! -f "${HOME}/.emacs.d/spacemacs.mk" ]; then
-#    log "Installing spacemacs"
-#    git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
-#else
-#    log "Spacemacs has been installed already; updating"
-#    silentpushd "${HOME}/.emacs.d"
-#    git pull --quiet
-#    silentpopd
-#fi
+if [ ! -f "${HOME}/.emacs.d/spacemacs.mk" ]; then
+    log "Installing spacemacs"
+    git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+else
+    log "Spacemacs has been installed already; updating"
+    silentpushd "${HOME}/.emacs.d"
+    git pull --quiet
+    silentpopd
+fi
 
 # Install "Oh My Fish" framework
 readonly omf_dir="${HOME}/.config/oh-my-fish"
