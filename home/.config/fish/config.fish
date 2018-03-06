@@ -91,3 +91,13 @@ function gsbt
   set GJAVA_OPTS ''
   eval "env JAVA_OPTS='$GJAVA_OPTS' SBT_OPTS='$GSBT_OPTS' sbt $GCMD_OPTS $argv"
 end
+
+# SBT using global repository settings and proxy
+function gsbt-proxy
+  set GCMD_OPTS '-J-Xmx4g -J-XX:+CMSClassUnloadingEnabled -J-XX:+UseConcMarkSweepGC -J-Xss2M'
+  set PROXY_OPTS '-J-Dhttp.proxyHost=127.0.0.1 -J-Dhttp.proxyPort=3128 -J-Dhttps.proxyHost=127.0.0.1 -J-Dhttps.proxyPort=3128'
+  set GSBT_OPTS ''
+  set GJAVA_OPTS ''
+  eval "env JAVA_OPTS='$GJAVA_OPTS' SBT_OPTS='$GSBT_OPTS' sbt $GCMD_OPTS $PROXY_OPTS $argv"
+end
+
