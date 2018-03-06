@@ -21,9 +21,6 @@
     (package-refresh-contents)
     (package-install 'delight t)
     (package-install 'use-package t))
-  (setq-default
-   use-package-always-defer t
-   use-package-always-ensure t)
 
   ;; Use an org file for remainder of configuration
   (org-babel-load-file (expand-file-name "dotemacs.org" dotemacs-path))

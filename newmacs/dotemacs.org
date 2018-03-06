@@ -1,27 +1,85 @@
 #+TITLE: DotEmacs
 #+AUTHOR: Jonathan Merritt
 
-* Bootstrap
-
-** Use better defaults
+* Better defaults
 
 Disable some of the UI elements that I don't use.
 
 #+BEGIN_SRC emacs-lisp
-(when window-system
-  (blink-cursor-mode 0)
-  (scroll-bar-mode 0)
-  (tool-bar-mode 0)
-  (tooltip-mode 0))
+  (when window-system
+    (blink-cursor-mode 0)
+    (scroll-bar-mode 0)
+    (tool-bar-mode 0)
+    (tooltip-mode 0))
+#+END_SRC
+
+* Evil
+
+Evil is a vim emulation layer for emacs.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package evil
+    :ensure t
+    :demand t
+    :after (evil-leader)
+    :config
+    (evil-mode 1))
+#+END_SRC
+
+=evil-leader= provides an easy way to bind keys under a variable prefix key.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package evil-leader
+    :ensure t
+    :demand t
+    :config
+    (evil-leader/set-leader "<SPC>")
+    (global-evil-leader-mode))
+#+END_SRC
+
+=evil-leader= is more useful with =which-key=, which provides hints about
+which keys can be used.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package which-key
+    :ensure t
+    :demand t
+    :config
+    (setq-default which-key-idle-delay 0.1)
+    (which-key-mode))
+#+END_SRC
+
+** Evil Leader Keys (Built-in Functionality)
+
+Now to define the =evil-leader= key-bindings that I want. These follow
+a rough layout that matches spacemacs.
+
+*** File prefix
+
+#+BEGIN_SRC emacs-lisp
+  (which-key-declare-prefixes "SPC f" "file")
+  (evil-leader/set-key
+    "ff" 'find-file)
 #+END_SRC
 
 * Theme
 
-I use the =zenburn-theme=
+I use the =zenburn-theme=:
 
 #+BEGIN_SRC emacs-lisp
-(use-package zenburn-theme
-  :demand t
-  :config
-  (load-theme 'zenburn t))
+  (use-package zenburn-theme
+    :ensure t
+    :demand t
+    :config
+    (load-theme 'zenburn t))
+#+END_SRC
+
+And the Fira Code font:
+
+#+BEGIN_SRC emacs-lisp
+  (set-face-attribute 'default nil
+                      :family "Fira Code"
+                      :height 140
+                      :weight 'normal
+                      :width 'normal)
 #+END_SRC
