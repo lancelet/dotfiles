@@ -13,9 +13,29 @@ Disable some of the UI elements that I don't use.
     (tooltip-mode 0))
 #+END_SRC
 
+=evil-collection= needs =evil-want-integration= to be =nil=
+
+#+BEGIN_SRC emacs-lisp
+  (setq-default evil-want-integration nil)
+#+END_SRC
+
+* Helm
+
+Helm is a completion and selection-narrowing framework.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package helm
+     :after (evil evil-collection)
+     :ensure t
+     :demand t
+     :config
+     (require 'evil-collection-helm)
+     (evil-collection-helm-setup))
+#+END_SRC
+
 * Evil
 
-Evil is a vim emulation layer for emacs.
+=evil= is a vim emulation layer for emacs.
 
 #+BEGIN_SRC emacs-lisp
   (use-package evil
@@ -24,6 +44,16 @@ Evil is a vim emulation layer for emacs.
     :after (evil-leader)
     :config
     (evil-mode 1))
+#+END_SRC
+
+=evil-collection= is a collection of =evil= key-bindings of parts of emacs
+that =evil= itself doesn't cover by default.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package evil-collection
+    :ensure t
+    :demand t
+    :after (evil))
 #+END_SRC
 
 =evil-leader= provides an easy way to bind keys under a variable prefix key.
@@ -59,7 +89,7 @@ a rough layout that matches spacemacs.
 #+BEGIN_SRC emacs-lisp
   (which-key-declare-prefixes "SPC f" "file")
   (evil-leader/set-key
-    "ff" 'find-file)
+    "ff" 'helm-find-files)
 #+END_SRC
 
 * Theme
