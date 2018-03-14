@@ -45,7 +45,7 @@ function setproxy
   set -xg HTTP_PROXY 'http://127.0.0.1:3128'
   set -xg http_proxy $HTTP_PROXY
   set -xg HTTPS_PROXY $HTTP_PROXY
-  set -xg https_prosy $HTTP_PROXY
+  set -xg https_proxy $HTTP_PROXY
 end
 
 # unset proxy environment variables
