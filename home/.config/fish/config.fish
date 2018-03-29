@@ -14,6 +14,11 @@ function newmacs
   eval "$HOME/.nix-profile/Applications/Emacs.app/Contents/MacOS/Emacs -Q -l $HOME/workspace/dotfiles/newmacs/init.el $argv &"
 end
 
+# Haskell tools
+function haskell-tools
+  stack install apply-refact hlint stylish-haskell hasktags hoogle intero fast-tags
+end
+
 # brings work secrets into scope as environment variables
 function work-secrets
   eval "ansible-vault view $HOME/.secrets/work.fish.encrypted | source -"
