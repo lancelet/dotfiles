@@ -16,7 +16,7 @@ end
 
 # Haskell tools
 function haskell-tools
-  stack install apply-refact hlint stylish-haskell hasktags hoogle intero fast-tags
+  stack install apply-refact hlint stylish-haskell hasktags hoogle intero fast-tags ghcid
 end
 
 # brings work secrets into scope as environment variables
