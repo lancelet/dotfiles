@@ -58,6 +58,7 @@
         openssl.dev  # for Laurence's confluence sync tool
         pkgconfig
         python35
+        python35Packages.pip
         python35Packages.virtualenv
 #        sbt
         scala
