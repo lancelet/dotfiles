@@ -41,7 +41,7 @@
         curl
         emacs25Macport
         ffmpeg
-	fish
+        fish
         fswatch
         git
         html-tidy
@@ -57,8 +57,10 @@
         openssl
         openssl.dev  # for Laurence's confluence sync tool
         pkgconfig
-	python3
+        python3
         python36Packages.virtualenv
+        python35
+        python35Packages.virtualenv
 #        sbt
         scala
         shellcheck
