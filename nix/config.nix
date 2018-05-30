@@ -60,13 +60,11 @@
         python35
         python35Packages.pip
         python35Packages.virtualenv
-#        sbt
         scala
         shellcheck
         stack
         travis
         tree
-#        vault # requires go; fails install
         wget
         which
         youtube-dl
