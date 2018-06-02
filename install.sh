@@ -34,10 +34,12 @@ function silentpopd() {
 
 # Link dotfiles
 dotfiles=( '.spacemacs'               \
-	   '.config/fish/config.fish' \
-	   '.profile'                 \
+           '.config/fish/config.fish' \
+           '.profile'                 \
            '.secrets'                 \
            '.aspell.conf'             \
+           '.doom.d/config.el'        \
+           '.doom.d/init.el'          \
          )
 function dotfile_ln() {
     local src="${home_dir}/$1"
@@ -45,6 +47,8 @@ function dotfile_ln() {
     log "Linking: $tgt -> $src"
     ln -sfn "$src" "$tgt"
 }
+mkdir -p "${HOME}/.config/fish"
+mkdir -p "${HOME}/.doom.d"
 for dotfile in "${dotfiles[@]}"; do dotfile_ln "${dotfile}"; done
 
 # Install nix if necessary
@@ -90,12 +94,15 @@ else
     sudo -- sh -c "mkdir -p /etc/ssl; ln -s ${NIX_SSL_CERT_FILE} /etc/ssl/cert.pem"
 fi
 
-# Install / update spacemacs
-if [ ! -f "${HOME}/.emacs.d/spacemacs.mk" ]; then
-    log "Installing spacemacs"
-    git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+# Install / update doom-emacs
+if [ ! -d "${HOME}/.emacs.d" ]; then
+    log "Installing doom-emacs"
+    git clone https://github.com/hlissner/doom-emacs.git ~/.emacs.d
+    silentpushd "${HOME}/.emacs.d"
+    git checkout develop
+    silentpopd
 else
-    log "Spacemacs has been installed already; updating"
+    log "doom-emacs has been installed already; updating"
     silentpushd "${HOME}/.emacs.d"
     git pull --quiet
     silentpopd
