@@ -1,5 +1,7 @@
 ;;; ~/.doom.d/config.el -*- lexical-binding: t; -*-
 
+(setq doom-font (font-spec :family "Fira Mono" :size 14))
+
 (add-hook! haskell-mode
   ;; before expressions in a Haskell layout list
   (setq-default haskell-indentation-layout-offset 4)
