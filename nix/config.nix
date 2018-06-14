@@ -107,9 +107,9 @@
         openssl
         openssl.dev  # for Laurence's confluence sync tool
         pkgconfig
-        python35
-        python35Packages.pip
-        python35Packages.virtualenv
+        python36
+        python36Packages.pip
+        python36Packages.virtualenv
         scala
         shellcheck
         stack
