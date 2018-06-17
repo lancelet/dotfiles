@@ -18,6 +18,9 @@ function newmacs
   eval "$HOME/.nix-profile/Applications/Emacs.app/Contents/MacOS/Emacs -Q -l $HOME/workspace/dotfiles/newmacs/init.el $argv &"
 end
 
+# nix-shell, but with fish
+alias nix-fish='nix-shell --command fish'
+
 # Haskell tools
 function haskell-tools
   stack install apply-refact hlint stylish-haskell hasktags hoogle intero fast-tags ghcid

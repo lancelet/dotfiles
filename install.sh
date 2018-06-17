@@ -33,13 +33,14 @@ function silentpopd() {
 }
 
 # Link dotfiles
-dotfiles=( '.spacemacs'               \
-           '.config/fish/config.fish' \
-           '.profile'                 \
-           '.secrets'                 \
-           '.aspell.conf'             \
-           '.doom.d/config.el'        \
-           '.doom.d/init.el'          \
+dotfiles=( '.spacemacs'                              \
+           '.config/fish/config.fish'                \
+           '.config/fish/functions/fish_prompt.fish' \
+           '.profile'                                \
+           '.secrets'                                \
+           '.aspell.conf'                            \
+           '.doom.d/config.el'                       \
+           '.doom.d/init.el'                         \
          )
 function dotfile_ln() {
     local src="${home_dir}/$1"
@@ -48,6 +49,7 @@ function dotfile_ln() {
     ln -sfn "$src" "$tgt"
 }
 mkdir -p "${HOME}/.config/fish"
+mkdir -p "${HOME}/.config/fish/functions"
 mkdir -p "${HOME}/.doom.d"
 for dotfile in "${dotfiles[@]}"; do dotfile_ln "${dotfile}"; done
 
