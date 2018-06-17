@@ -36,6 +36,8 @@
         ansible
         aspell
         aspellDicts.en
+        cabal-install
+        cabal2nix
         cmake
         cntlm
         curl
@@ -53,6 +55,7 @@
         ncurses
         ncurses.dev
         neovim
+        nix-prefetch-git
         nodePackages.tern
         openssl
         openssl.dev  # for Laurence's confluence sync tool
