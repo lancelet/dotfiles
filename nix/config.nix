@@ -95,6 +95,14 @@
         fswatch
         ghc
         git
+        haskellPackages.brittany
+        haskellPackages.fast-tags
+        haskellPackages.ghcid
+        haskellPackages.hasktags
+        haskellPackages.hlint
+        haskellPackages.hoogle
+        haskellPackages.pandoc
+        haskellPackages.stylish-haskell
         html-tidy
         idris
         leiningen
