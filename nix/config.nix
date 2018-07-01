@@ -105,6 +105,7 @@
         haskellPackages.stylish-haskell
         html-tidy
         idris
+        jq
         leiningen
         libffi
         llvm_5
