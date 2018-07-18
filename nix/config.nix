@@ -90,6 +90,7 @@
         cntlm
         curl
         emacs26
+        enca
         ffmpeg
         fish
         fswatch
