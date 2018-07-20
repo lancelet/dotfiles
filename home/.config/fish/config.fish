@@ -5,6 +5,9 @@ set -g theme_color_scheme solarized
 # Haskell stack install path
 set -xg PATH $HOME/.local/bin $PATH
 
+# Rust tools path
+set -xg PATH $HOME/.cargo/bin $PATH
+
 # SSL certificate file
 set -xg SSL_CERT_FILE $NIX_SSL_CERT_FILE
 
