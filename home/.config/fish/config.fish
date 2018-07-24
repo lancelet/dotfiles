@@ -7,6 +7,7 @@ set -xg PATH $HOME/.local/bin $PATH
 
 # Rust tools path
 set -xg PATH $HOME/.cargo/bin $PATH
+set -xg RUST_SRC_PATH $HOME/workspace/rust/src
 
 # SSL certificate file
 set -xg SSL_CERT_FILE $NIX_SSL_CERT_FILE
@@ -32,6 +33,15 @@ end
 # brings work secrets into scope as environment variables
 function work-secrets
   eval "ansible-vault view $HOME/.secrets/work.fish.encrypted | source -"
+end
+
+# install the CBA root certificate
+function install-cba-root-cert
+  if not set -q NIX_SSL_CERT_FILE
+    echo 'NIX_SSL_CERT_FILE is not set!' 
+    exit -1
+  end
+  sudo bash -c "/usr/bin/security find-certificate -c CBAInternalRootCA -p >> $NIX_SSL_CERT_FILE"
 end
 
 # start CNTLM
