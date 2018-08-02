@@ -1,6 +1,6 @@
 ;;; ~/.doom.d/config.el -*- lexical-binding: t; -*-
 
-(setq doom-font (font-spec :family "FuraCode Nerd Font Mono" 
+(setq doom-font (font-spec :family "FuraCode Nerd Font" 
 			   :size 14))
 
 (add-hook! haskell-mode
