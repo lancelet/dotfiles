@@ -96,9 +96,11 @@
         fswatch
         ghc
         git
+        haskellPackages.alex
         haskellPackages.brittany
         haskellPackages.fast-tags
         haskellPackages.ghcid
+        haskellPackages.happy
         haskellPackages.hasktags
         haskellPackages.hlint
         haskellPackages.hoogle
