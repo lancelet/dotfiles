@@ -84,6 +84,8 @@
         ansible
         aspell
         aspellDicts.en
+        autoconf
+        automake
         cabal-install
         cabal2nix
         cmake
