@@ -1,6 +1,10 @@
 ;;; ~/.doom.d/config.el -*- lexical-binding: t; -*-
 
-(setq doom-font (font-spec :family "FuraCode Nerd Font" 
+(add-to-list 'auto-mode-alist '("\\.tbl\\'" . sql-mode))
+(add-to-list 'auto-mode-alist '("\\.cmt\\'" . sql-mode))
+(add-to-list 'auto-mode-alist '("\\.viw\\'" . sql-mode))
+
+(setq doom-font (font-spec :family "FuraCode Nerd Font"
 			   :size 14))
 
 (add-hook! haskell-mode
