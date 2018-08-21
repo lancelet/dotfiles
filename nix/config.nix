@@ -133,6 +133,7 @@
         stack
         travis
         tree
+        vagrant
         wget
         which
         youtube-dl
