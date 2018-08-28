@@ -126,3 +126,19 @@ function gsbt-proxy
   eval "env JAVA_OPTS='$GJAVA_OPTS' SBT_OPTS='$GSBT_OPTS' sbt $GCMD_OPTS $PROXY_OPTS $argv"
 end
 
+# SBT using ZBI settings
+function zsbt
+  set JVM_TMP_DIR "$HOME/workspace/tmp"
+  if not test -d "$JVM_TMP_DIR"
+    mkdir -p "$JVM_TMP_DIR"
+  end
+  set ZBI_REPO "$HOME/workspace/zbi-repo-settings"
+  if not test -d "$ZBI_REPO"
+    pushd "$HOME/workspace"
+    git clone https://github.ai.cba/ZBI/repo-settings zbi-repo-settings
+    popd
+  end
+  set STANDARD_JVM_OPTS "-J-Djava.io.tmpdir=$HOME/workspace/tmp -J-Dfile.encoding=UTF8 -J-XX:MaxPermSize=2G -J-Xms512m -J-Xmx3g -J-XX:+CMSClassUnloadingEnabled -J-XX:+UseConcMarkSweepGC"
+  set JVM_OPTS "-J-Dsbt.override.build.repos=true -J-Dsbt.repository.config=$ZBI_REPO/sbt/repositories $STANDARD_JVM_OPTS"
+  eval "env SBT_OPTS='' sbt $JVM_OPTS $argv"
+end
