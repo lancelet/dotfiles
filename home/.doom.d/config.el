@@ -7,6 +7,8 @@
 (setq doom-font (font-spec :family "FuraCode Nerd Font"
 			   :size 14))
 
+(setq flycheck-python-flake8-executable "flake8")
+
 (add-hook! haskell-mode
   ;; before expressions in a Haskell layout list
   (setq-default haskell-indentation-layout-offset 4)
