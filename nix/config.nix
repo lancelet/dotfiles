@@ -98,6 +98,7 @@
         fswatch
         ghc
         git
+	gnupg
         haskellPackages.alex
         haskellPackages.brittany
         haskellPackages.fast-tags
