@@ -50,6 +50,7 @@ function dotfile_ln() {
     ln -sfn "$src" "$tgt"
 }
 mkdir -p "${HOME}/.config/fish"
+mkdir -p "${HOME}/.config/alacritty"
 mkdir -p "${HOME}/.config/fish/functions"
 mkdir -p "${HOME}/.doom.d"
 for dotfile in "${dotfiles[@]}"; do dotfile_ln "${dotfile}"; done
