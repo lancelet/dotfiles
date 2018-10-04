@@ -100,7 +100,7 @@
         git
 	gnupg
         haskellPackages.alex
-        haskellPackages.brittany
+        # haskellPackages.brittany
         haskellPackages.fast-tags
         haskellPackages.ghcid
         haskellPackages.happy
