@@ -29,6 +29,7 @@
         '';
       };
 
+/*
     emacs26 = with pkgs.stdenv.lib; pkgs.stdenv.mkDerivation rec {
       name = "emacs26";
       version = "26.1";
@@ -76,6 +77,7 @@
         mv nextstep/Emacs.app $out/Applications
       '';
       };
+*/
 
     coreEnv = with pkgs; buildEnv {
       name = "coreEnv";
@@ -98,9 +100,8 @@
         fswatch
         ghc
         git
-	gnupg
+        gnupg
         haskellPackages.alex
-        # haskellPackages.brittany
         haskellPackages.fast-tags
         haskellPackages.ghcid
         haskellPackages.happy
@@ -132,6 +133,7 @@
         scala
         shellcheck
         stack
+        texlive.combined.scheme-full
         travis
         tree
         vagrant
