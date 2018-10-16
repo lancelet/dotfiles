@@ -91,7 +91,7 @@ nixconfig_ln
 
 # TEMPORARY: Link /etc/ssl/cert.pem to $NIX_SSL_CERT_FILE (for curl)
 #   Issue: https://github.com/NixOS/nixpkgs/issues/8247
-if [ -e /etc/ssl/cert.pem ]; then
+if [ -f /etc/ssl/cert.pem ] || [ -L /etc/ssl/cert.pem ]; then
     log "/etc/ssl/cert.pem exists already; not touching it."
 else
     log "TEMPORARY: linking /etc/ssl/cert.pem to ${NIX_SSL_CERT_FILE} - sorry, requires sudo"
