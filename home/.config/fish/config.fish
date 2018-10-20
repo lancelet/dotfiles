@@ -1,6 +1,6 @@
 # Theme setup
 set -g theme_nerd_fonts yes
-set -g theme_color_scheme solarized
+set -g theme_color_scheme terminal
 
 # Haskell stack install path
 set -xg PATH $HOME/.local/bin $PATH

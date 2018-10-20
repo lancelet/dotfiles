@@ -35,7 +35,6 @@ function silentpopd() {
 # Link dotfiles
 dotfiles=( '.spacemacs'                              \
            '.config/fish/config.fish'                \
-           '.config/fish/functions/fish_prompt.fish' \
            '.config/alacritty/alacritty.yml'         \
            '.profile'                                \
            '.secrets'                                \
@@ -51,7 +50,6 @@ function dotfile_ln() {
 }
 mkdir -p "${HOME}/.config/fish"
 mkdir -p "${HOME}/.config/alacritty"
-mkdir -p "${HOME}/.config/fish/functions"
 mkdir -p "${HOME}/.doom.d"
 for dotfile in "${dotfiles[@]}"; do dotfile_ln "${dotfile}"; done
 
