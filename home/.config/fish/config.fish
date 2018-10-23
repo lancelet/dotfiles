@@ -5,10 +5,6 @@ set -g theme_color_scheme terminal
 # Haskell stack install path
 set -xg PATH $HOME/.local/bin $PATH
 
-# Rust tools path
-set -xg PATH $HOME/.cargo/bin $PATH
-set -xg RUST_SRC_PATH $HOME/workspace/rust/src
-
 # SSL certificate file
 set -xg SSL_CERT_FILE $NIX_SSL_CERT_FILE
 

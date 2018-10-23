@@ -35,7 +35,6 @@ function silentpopd() {
 # Link dotfiles
 dotfiles=( '.spacemacs'                              \
            '.config/fish/config.fish'                \
-           '.config/fish/functions/fish_prompt.fish' \
            '.config/alacritty/alacritty.yml'         \
            '.profile'                                \
            '.secrets'                                \
