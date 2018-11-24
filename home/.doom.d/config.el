@@ -9,6 +9,8 @@
 
 (setq flycheck-python-flake8-executable "flake8")
 
+(load-theme 'doom-nord-light t)
+
 (add-hook! haskell-mode
   ;; before expressions in a Haskell layout list
   (setq-default haskell-indentation-layout-offset 4)
