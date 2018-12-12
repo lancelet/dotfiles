@@ -77,6 +77,15 @@ function unsetproxy
   set -e https_proxy
 end
 
+# vault stuff
+function setvaultproxy
+  work-secrets   # Bring VAULT_ADDR and VAULT_PROXY secrets into scope
+  set -xg HTTP_PROXY $VAULT_PROXY
+  set -xg http_proxy $VAULT_PROXY
+  set -xg HTTPS_PROXY $VAULT_PROXY
+  set -xg https_proxy $VAULT_PROXY
+end
+
 # turn off McAfee
 function mcaoff
   sudo /usr/local/McAfee/StatefulFirewall/bin/StatefullFirewallControl stop
