@@ -137,6 +137,7 @@
         travis
         tree
         vagrant
+        vault
         wget
         which
         youtube-dl
