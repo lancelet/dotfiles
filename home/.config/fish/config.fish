@@ -85,6 +85,9 @@ function setvaultproxy
   set -xg HTTPS_PROXY $VAULT_PROXY
   set -xg https_proxy $VAULT_PROXY
 end
+function vaultlogin
+  vault login -method=ldap username=merrijo
+end
 
 # turn off McAfee
 function mcaoff
