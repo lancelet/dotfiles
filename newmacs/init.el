@@ -46,7 +46,7 @@
  '(global-company-mode t t)
  '(package-selected-packages
    (quote
-    (general evil-leader evil-goggles doom-themes use-package-ensure-system-package evil delight))))
+    (doom-modeline general evil-leader evil-goggles doom-themes use-package-ensure-system-package evil delight))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

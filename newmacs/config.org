@@ -77,11 +77,12 @@ paste, etc.
   (menu-bar-mode -1)
   (scroll-bar-mode -1)
   (tool-bar-mode -1)
+  (column-number-mode 1)
 #+END_SRC
 
 ** Theme
    
-Use doom-themes, the theme set from the doom emacs setup.
+Use =doom-themes=, the theme set from the doom emacs setup.
 
 #+BEGIN_SRC emacs-lisp :tangle yes
   (use-package doom-themes :ensure t)
@@ -89,6 +90,15 @@ Use doom-themes, the theme set from the doom emacs setup.
 
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config)
+#+END_SRC
+
+** Modeline
+
+Using =doom-modeline=.
+
+#+BEGIN_SRC emacs-lisp :tangle yes
+  (use-package all-the-icons :ensure t)
+  (use-package doom-modeline :ensure t :init (doom-modeline-init))
 #+END_SRC
 
 ** Default Font
