@@ -1,0 +1,128 @@
+#+AUTHOR: Jonathan Merritt
+#+TITLE: GNU Emacs Configuration
+
+* Packages
+** Package Sources
+
+Set the package sources so that I can load packages.
+
+#+BEGIN_SRC emacs-lisp :tangle yes
+  (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                           ("melpa" . "http://melpa.org/packages/")
+                           ("org" . "http://orgmode.org/elpa/")))
+#+END_SRC
+
+** use-package
+
+To be able to manage its configuration with =use-package= it is necessary to
+first install it, if you don't already.
+
+#+BEGIN_SRC emacs-lisp :tangle yes
+  (unless (package-installed-p 'use-package)
+    (package-refresh-contents)
+    (package-install 'use-package))
+
+  (use-package delight :ensure t)
+  (use-package use-package-ensure-system-package :ensure t)
+#+END_SRC
+
+* Start Up
+** Evil
+
+=evil-leader= provides a way to bind keys under a variable prefix key.
+
+#+BEGIN_SRC emacs-lisp :tangle yes
+  (use-package evil-leader :ensure t)
+  (global-evil-leader-mode)
+#+END_SRC
+
+=which-key= combined with =evil-leader= indicates the key presses that
+are available.
+
+#+BEGIN_SRC emacs-lisp :tangle yes
+  (use-package which-key :ensure t)
+  (which-key-mode)
+#+END_SRC
+
+=general= provides convenience wrappers for key bindings.
+
+#+BEGIN_SRC emacs-lisp :tangle yes
+  (use-package general :ensure t)
+  (general-evil-setup)
+#+END_SRC
+  
+=evil= is a vim emulation layer for emacs.
+
+#+BEGIN_SRC emacs-lisp :tangle yes
+  (use-package evil :ensure t)
+  (evil-mode 1)
+#+END_SRC
+
+=evil-goggles= provides a visual hint to evil operations such as yank, delete,
+paste, etc.
+
+#+BEGIN_SRC emacs-lisp :tangle yes
+  (use-package evil-goggles :ensure t)
+  (evil-goggles-mode)
+#+END_SRC
+
+** Better Defaults
+
+#+BEGIN_SRC emacs-lisp :tangle yes
+  (setq
+    inhibit-startup-screen t
+    initial-scratch-message ""
+    fill-column 80
+    vc-follow-symlinks t)
+  (menu-bar-mode -1)
+  (scroll-bar-mode -1)
+  (tool-bar-mode -1)
+#+END_SRC
+
+** Theme
+   
+Use doom-themes, the theme set from the doom emacs setup.
+
+#+BEGIN_SRC emacs-lisp :tangle yes
+  (use-package doom-themes :ensure t)
+  (load-theme 'doom-nord-light t) 
+
+  ;; Corrects (and improves) org-mode's native fontification.
+  (doom-themes-org-config)
+#+END_SRC
+
+** Default Font
+
+#+BEGIN_SRC emacs-lisp :tangle yes
+  (set-face-attribute 'default nil
+                      :family "FuraCode Nerd Font Mono"
+                      :height 140)
+#+END_SRC
+* Evil Leader Keys
+
+Here I set the keys for evil mode.
+
+#+BEGIN_SRC emacs-lisp :tangle yes
+  (general-nmap
+    :prefix "SPC"
+    ;; Window
+    "w" '(:ignore t :which-key "window")
+    "wh" 'evil-window-left
+    "wj" 'evil-window-down
+    "wk" 'evil-window-up
+    "wl" 'evil-window-right
+    "wq" 'evil-quit
+  )
+#+END_SRC
+
+* Configuration
+** Ivy
+
+Ivy is a generic completion mechanism.
+
+#+BEGIN_SRC emacs-lisp :tangle yes
+  (use-package ivy
+    :defer 0.1
+    :delight
+    :config (ivy-mode))
+#+END_SRC
