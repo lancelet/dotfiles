@@ -48,9 +48,6 @@ collection of additional packages for things that the original evil
 bindings missed.
 
 #+BEGIN_SRC emacs-lisp :tangle yes
-(setq evil-emacs-state-modes nil)
-(setq evil-insert-state-modes nil)
-(setq evil-motion-state-modes nil)
 (use-package evil
   :ensure t
   :init
@@ -207,7 +204,6 @@ I also use =evil-magit= to add evil key bindings.
     :config
     (require 'evil-magit))
 #+END_SRC
-
 
 * Languages
 ** Haskell
