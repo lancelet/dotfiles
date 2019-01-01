@@ -38,15 +38,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(company-begin-commands (quote (self-insert-command)) t)
- '(company-idle-delay 0.1 t)
- '(company-minimum-prefix-length 2 t)
- '(company-show-numbers t t)
- '(company-tooltip-align-annotations t t)
- '(global-company-mode t t)
  '(package-selected-packages
    (quote
-    (doom-modeline general evil-leader evil-goggles doom-themes use-package-ensure-system-package evil delight))))
+    (magit ivy-posframe evil-collection which-key use-package-ensure-system-package projectile ivy haskell-mode general evil-leader evil-goggles evil-escape doom-themes doom-modeline delight))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
