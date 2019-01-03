@@ -34,7 +34,8 @@ Initially, I set some defaults for emacs that I prefer:
     initial-scratch-message ""
     fill-column 80
     vc-follow-symlinks t
-    mac-command-modifier 'meta)
+    mac-command-modifier 'meta
+    evil-want-C-u-scroll t)
   (menu-bar-mode -1)
   (scroll-bar-mode -1)
   (tool-bar-mode -1)
