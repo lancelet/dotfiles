@@ -13,9 +13,9 @@ import           Data.Text     (Text)
 import qualified Data.Text     as T
 import           Turtle        (ExitCode, FilePath, Shell, directory, empty,
                                 home, inshell, isDirectory, isSymbolicLink,
-                                liftIO, mktree, pwd, rm, rmtree, sh, shell,
-                                stat, symlink, testdir, testfile, testpath,
-                                toText, (.&&.), (.||.), (</>))
+                                liftIO, mktree, pushd, pwd, rm, rmtree, sh,
+                                shell, stat, symlink, testdir, testfile,
+                                testpath, toText, (.&&.), (.||.), (</>))
 
 import           Prelude       hiding (FilePath)
 
@@ -28,6 +28,13 @@ everything :: Shell ()
 everything = do
     linkDotFiles
     nix
+
+    -- After installing omf, need to manually do:
+    --  cd ~/.config/oh-my-fish
+    --  ./bin/install --offline --yes
+    --  omf install bobthefish
+    --  omf theme bobthefish
+    omf
 
 -- | Force a symbolic link, removing an existing file if present.
 forceLink :: FilePath -> FilePath -> Shell ()
@@ -44,9 +51,9 @@ rmtreef path = do
     exists <- testpath path
     when exists (rmtree path)
 
------
+-------------------------------------------------------------------------------
 -- Actual dotfiles
------
+-------------------------------------------------------------------------------
 
 data DotFile
   = DotFile
@@ -59,6 +66,8 @@ dotFiles
   = [ DotFile "config.nix" ".nixpkgs/config.nix"
     , DotFile "emacs-config.org" ".emacs.d/config.org"
     , DotFile "init.el" ".emacs.d/init.el"
+    , DotFile "profile" ".profile"
+    , DotFile "config.fish" ".config/fish/config.fish"
     ]
 
 -- | Link dotfiles.
@@ -91,9 +100,38 @@ unlinkDotFile dotFile = do
     exists <- testfile targetFile
     when exists (rm targetFile)
 
------
+-------------------------------------------------------------------------------
+-- Oh My Fish
+-------------------------------------------------------------------------------
+
+omfDir :: Shell FilePath
+omfDir = do
+  homeDir <- home
+  pure (homeDir </> ".config" </> "oh-my-fish")
+
+omf :: Shell ()
+omf = do
+  installed <- omfInstalled
+  if installed then updateOmf else installOmf
+  pure ()
+
+omfInstalled :: Shell Bool
+omfInstalled = omfDir >>= testdir
+
+installOmf :: Shell ()
+installOmf = do
+  homeDir <- home
+  let d = homeDir </> ".config"
+  mktree d
+  pushd d >> inshell "git clone https://github.com/oh-my-fish/oh-my-fish" empty
+  pure ()
+
+updateOmf :: Shell ()
+updateOmf = omfDir >>= pushd >> inshell "git checkout master" empty >> pure ()
+
+-------------------------------------------------------------------------------
 -- Nix
------
+-------------------------------------------------------------------------------
 
 -- | Check if Nix is installed already.
 nixInstalled :: Shell Bool
