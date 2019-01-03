@@ -1,6 +1,6 @@
 #!/usr/bin/env cabal
 {- cabal:
-build-depends: 
+build-depends:
     base   ^>= 4.12
   , text   ^>= 1.2
   , turtle ^>= 1.5
@@ -8,14 +8,16 @@ build-depends:
 
 {-# LANGUAGE OverloadedStrings #-}
 
-import Control.Monad (unless, when)
-import Turtle (FilePath, Shell, sh, empty, inshell, isDirectory, stat, directory, mktree, home, (</>), toText, pwd,
-               symlink, isSymbolicLink, rm, testfile, liftIO, rmtree, testdir, testpath, (.&&.), (.||.), shell,
-               ExitCode)
-import Data.Text (Text)
-import qualified Data.Text as T
+import           Control.Monad (unless, when)
+import           Data.Text     (Text)
+import qualified Data.Text     as T
+import           Turtle        (ExitCode, FilePath, Shell, directory, empty,
+                                home, inshell, isDirectory, isSymbolicLink,
+                                liftIO, mktree, pwd, rm, rmtree, sh, shell,
+                                stat, symlink, testdir, testfile, testpath,
+                                toText, (.&&.), (.||.), (</>))
 
-import Prelude hiding (FilePath)
+import           Prelude       hiding (FilePath)
 
 main :: IO ()
 main = do
@@ -34,7 +36,7 @@ forceLink source dest = do
     exists <- testfile dest
     when exists (rm dest)
     -- set up the new symbolic link
-    symlink source dest 
+    symlink source dest
 
 -- | Force removal of a file.
 rmtreef :: FilePath -> Shell ()
@@ -55,6 +57,8 @@ data DotFile
 dotFiles :: [DotFile]
 dotFiles
   = [ DotFile "config.nix" ".nixpkgs/config.nix"
+    , DotFile "emacs-config.org" ".emacs.d/config.org"
+    , DotFile "init.el" ".emacs.d/init.el"
     ]
 
 -- | Link dotfiles.
@@ -66,11 +70,11 @@ linkDotFile :: DotFile -> Shell ()
 linkDotFile dotFile = do
     curDir <- pwd
     homeDir <- home
-    let 
+    let
         sourceFile = curDir </> (inRepo dotFile)
         targetDir = homeDir </> (directory . inDir $ dotFile)
         targetFile = homeDir </> (inDir dotFile)
-    mktree targetDir 
+    mktree targetDir
     forceLink sourceFile targetFile
     pure ()
 
@@ -96,7 +100,7 @@ nixInstalled :: Shell Bool
 nixInstalled = testdir "/nix"
 
 inNix :: Text -> Shell ExitCode
-inNix cmd = do 
+inNix cmd = do
     let fullCmd = T.concat [ "source ~/.nix-profile/etc/profile.d/nix.sh && ", cmd ]
     shell fullCmd empty
 
