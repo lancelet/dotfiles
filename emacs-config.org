@@ -116,6 +116,7 @@ I use =general= to do additional key bindings.
     :states '(normal motion)
     :keymaps '(normal emacs override)
     :prefix "SPC"
+    "SPC" 'projectile-find-file
     "."  'find-file
     ;; Buffer
     "b" '(:ignore t :which-key "buffer")
@@ -182,7 +183,11 @@ suggestions.
 #+BEGIN_SRC emacs-lisp :tangle yes
   (use-package projectile 
     :ensure t
-    :after evil)
+    :after evil
+    :init
+    (setq projectile-completion-system 'ivy)
+    :config
+    (projectile-mode +1))
 #+END_SRC
 
 * Magit
