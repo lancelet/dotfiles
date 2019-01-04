@@ -27,6 +27,7 @@
 (package-initialize)
 
 ;; Load org mode config
+(setq vc-follow-symlinks t)
 (org-babel-load-file (expand-file-name "config.org" user-emacs-directory))
 
 ;; Make gc pauses faster by decreasing the threshold.
