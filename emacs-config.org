@@ -35,6 +35,7 @@ Initially, I set some defaults for emacs that I prefer:
     fill-column 80
     vc-follow-symlinks t
     mac-command-modifier 'meta
+    backup-directory-alist `(("." . "~/.emacs-saves"))
     evil-want-C-u-scroll t)
   (menu-bar-mode -1)
   (scroll-bar-mode -1)
