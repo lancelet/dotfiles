@@ -121,6 +121,7 @@ I use =general= to do additional key bindings.
     "."  'find-file
     ;; Buffer
     "b" '(:ignore t :which-key "buffer")
+    "bb" 'ivy-switch-buffer
     "bk" 'kill-current-buffer
     ;; Git
     "g" '(:ignore t :which-key "git")
