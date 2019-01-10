@@ -133,6 +133,9 @@ I use =general= to do additional key bindings.
     "wl" 'evil-window-right
     "wq" 'evil-quit
     )
+  (general-define-key
+    "M-f" 'swiper
+    )
   ;; Use C-j and C-k to navigate the Ivy minibuffer
   (general-define-key
     :keymaps '(normal ivy-minibuffer-map)
@@ -175,6 +178,14 @@ suggestions.
         (right-fringe . 10)))
     :config
     (ivy-posframe-enable))
+#+END_SRC
+
+Swiper is a search framework on top of Ivy.
+
+#+BEGIN_SRC emacs-lisp :tangle yes
+  (use-package swiper
+    :ensure t
+    :after evil)
 #+END_SRC
 
 * Projectile
