@@ -39,6 +39,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("6d589ac0e52375d311afaa745205abb6ccb3b21f6ba037104d71111e7e76a3fc" default)))
  '(package-selected-packages
    (quote
     (haskell-mode evil-magit magit projectile ivy-posframe ivy which-key general doom-modeline doom-themes evil-goggles evil-collection evil use-package-ensure-system-package use-package))))
