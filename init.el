@@ -41,7 +41,7 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("6d589ac0e52375d311afaa745205abb6ccb3b21f6ba037104d71111e7e76a3fc" default)))
+    ("a3fa4abaf08cc169b61dea8f6df1bbe4123ec1d2afeb01c17e11fdc31fc66379" "6d589ac0e52375d311afaa745205abb6ccb3b21f6ba037104d71111e7e76a3fc" default)))
  '(package-selected-packages
    (quote
     (haskell-mode evil-magit magit projectile ivy-posframe ivy which-key general doom-modeline doom-themes evil-goggles evil-collection evil use-package-ensure-system-package use-package))))
