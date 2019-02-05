@@ -79,7 +79,6 @@
         python36Packages.ipython
         python36Packages.pip
         python36Packages.virtualenv
-	rubber
         # rustup
         scala
         shellcheck
