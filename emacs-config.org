@@ -234,6 +234,15 @@ I use =haskell-mode= only.
     :ensure t)
 #+END_SRC
 
+** Rust
+
+Setup for the Rust language.
+
+#+BEGIN_SRC emacs-lisp :tangle yes
+  (use-package rust-mode
+    :ensure t)
+#+END_SRC
+
 ** Markdown
 
 #+BEGIN_SRC emacs-lisp :tangle yes
