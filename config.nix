@@ -51,6 +51,7 @@
         ghc
         git
         gnupg
+	gnuplot
         haskellPackages.alex
         haskellPackages.fast-tags
         haskellPackages.ghcid
@@ -79,8 +80,8 @@
         python36Packages.ipython
         python36Packages.pip
         python36Packages.virtualenv
-        rustup
-	rustracer
+        # rustup
+	# rustracer
         scala
         shellcheck
         stack
