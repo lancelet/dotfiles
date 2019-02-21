@@ -83,7 +83,7 @@ I use =doom-themes=, the theme set from doom emacs.
 
 #+BEGIN_SRC emacs-lisp :tangle yes
   (use-package doom-themes :ensure t)
-  (load-theme 'doom-nord-light t) 
+  (load-theme 'doom-tomorrow-night t) 
 #+END_SRC
 
 * Font
