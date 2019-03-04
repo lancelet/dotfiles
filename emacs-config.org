@@ -95,6 +95,12 @@ Set the font.
     :height 130)
 #+END_SRC
 
+Disable subscripts for LaTeX mode.
+
+#+BEGIN_SRC emacs-lisp :tangle yes
+  (setq tex-fontify-script nil)
+#+END_SRC
+
 * Modeline
 
 Using =doom-modeline=. This also requires =all-the-icons=, with its
