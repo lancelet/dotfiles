@@ -92,7 +92,7 @@ Set the font.
 
 #+BEGIN_SRC emacs-lisp :tangle yes
   (set-face-attribute 'default nil
-    :height 130)
+    :height 150)
 #+END_SRC
 
 * Modeline
