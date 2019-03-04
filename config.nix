@@ -63,6 +63,7 @@
         haskellPackages.stylish-haskell
         html-tidy
         idris
+	imagemagick
         jq
         leiningen
         libffi
