@@ -83,6 +83,7 @@
         python36Packages.virtualenv
         # rustup
 	# rustracer
+	sbt
         scala
         shellcheck
         stack
