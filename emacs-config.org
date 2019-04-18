@@ -64,6 +64,14 @@ bindings missed.
   (evil-collection-init))
 #+END_SRC
 
+Set evil up so that =j= and =k= use the visual line mode:
+
+#+BEGIN_SRC emacs-lisp :tangle yes
+(global-visual-line-mode t)
+(evil-define-minor-mode-key 'motion 'visual-line-mode "j" 'evil-next-visual-line)
+(evil-define-minor-mode-key 'motion 'visual-line-mode "k" 'evil-previous-visual-line)
+#+END_SRC
+
 * Evil Goggles
 
 =evil-googles= provides a visual hint to =evil= operations such as yank,
