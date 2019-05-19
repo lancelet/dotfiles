@@ -38,6 +38,7 @@
         aspellDicts.en
         autoconf
         automake
+	bat
         cabal-install
         cabal2nix
         cmake
