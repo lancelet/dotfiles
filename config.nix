@@ -85,6 +85,7 @@
         python36Packages.virtualenv
         # rustup
 	# rustracer
+	ripgrep
 	sbt
         scala
         shellcheck
