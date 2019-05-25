@@ -41,6 +41,7 @@
 	bat
         cabal-install
         cabal2nix
+	cargo
         cmake
         cntlm
         curl
