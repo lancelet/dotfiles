@@ -29,10 +29,15 @@
         '';
       };
 
-    coreEnv = with pkgs; buildEnv {
+    coreEnv = with pkgs;
+      let
+        all-hies = import (fetchTarball "https://github.com/infinisil/all-hies/tarball/master") {};
+    in buildEnv {
       name = "coreEnv";
       paths = [
+        (all-hies.selection { selector = p: { inherit (p) ghc864 ghc863 ghc843; }; })
         ag
+	alacritty
         ansible
         aspell
         aspellDicts.en
