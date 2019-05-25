@@ -41,6 +41,7 @@
 	bat
         cabal-install
         cabal2nix
+	cachix
 	cargo
         cmake
         cntlm
