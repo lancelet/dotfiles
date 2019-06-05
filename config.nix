@@ -75,7 +75,7 @@
         jq
         leiningen
         libffi
-        llvm_5
+        llvm_6
         maven
         ncurses
         ncurses.dev
