@@ -158,7 +158,7 @@ nix = do
         installNix
         linkDotFiles
     inNix "nix-channel --remove nixpkgs"
-    inNix "nix-channel --add https://nixos.org/channels/nixpkgs-18.09-darwin nixpkgs"
+    inNix "nix-channel --add https://nixos.org/channels/nixpkgs-19.03-darwin nixpkgs"
     inNix "nix-channel --update"
     inNix "nix-env -iA nixpkgs.coreEnv"
     pure ()
