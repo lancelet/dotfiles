@@ -30,24 +30,21 @@
       };
 
     coreEnv = with pkgs;
-      let
-        all-hies = import (fetchTarball "https://github.com/infinisil/all-hies/tarball/master") {};
-    in buildEnv {
+    buildEnv {
       name = "coreEnv";
       paths = [
-        (all-hies.selection { selector = p: { inherit (p) ghc864 ghc863 ghc843; }; })
         ag
-	alacritty
+        alacritty
         ansible
         aspell
         aspellDicts.en
         autoconf
         automake
-	bat
+        bat
         cabal-install
         cabal2nix
-	cachix
-	cargo
+        cachix
+        cargo
         cmake
         cntlm
         curl
@@ -59,7 +56,7 @@
         ghc
         git
         gnupg
-	gnuplot
+        gnuplot
         haskellPackages.alex
         haskellPackages.fast-tags
         haskellPackages.ghcid
@@ -71,7 +68,7 @@
         haskellPackages.stylish-haskell
         html-tidy
         idris
-	imagemagick
+        imagemagick
         jq
         leiningen
         libffi
@@ -88,12 +85,12 @@
         python36
         python36Packages.ipython
         python36Packages.pip
-	python36Packages.pygments
+        python36Packages.pygments
         python36Packages.virtualenv
         # rustup
-	# rustracer
-	ripgrep
-	sbt
+        # rustracer
+        ripgrep
+        sbt
         scala
         shellcheck
         stack
