@@ -29,67 +29,22 @@
         '';
       };
 
-/*
-    emacs26 = with pkgs.stdenv.lib; pkgs.stdenv.mkDerivation rec {
-      name = "emacs26";
-      version = "26.1";
-      src = pkgs.fetchurl {
-        url = "mirror://gnu/emacs/emacs-${version}.tar.xz";
-        sha256 = "0b6k1wq44rc8gkvxhi1bbjxbz3cwg29qbq8mklq2az6p1hjgrx0w";
-      };
-      enableParallelBuilding = true;
-      nativeBuildInputs = with pkgs; [ pkgconfig autoconf automake texinfo ];
-      buildInputs = with pkgs; [
-        ncurses
-        libxml2
-        gnutls
-        gettext
-        libpng
-        libjpeg
-        libungif
-        libtiff
-        librsvg
-        imagemagick
-        darwin.apple_sdk.frameworks.AppKit
-        darwin.apple_sdk.frameworks.GSS
-        darwin.apple_sdk.frameworks.ImageIO
-      ];
-      hardeningDisable = [ "format" ];
-      configureFlags = [ "--with-modules" "--with-ns" "--disable-ns-self-contained" ];
-      preConfigure = ''
-        ./autogen.sh
-        substituteInPlace lisp/international/mule-cmds.el \
-          --replace /usr/share/locale ${pkgs.gettext}/share/locale
-        for makefile_in in $(find . -name Makefile.in -print); do
-          substituteInPlace $makefile_in --replace /bin/pwd pwd
-        done
-      '';
-      installTargets = "tags install";
-      postInstall = ''
-        mkdir -p $out/share/emacs/site-lisp
-        cp ${./site-start.el} $out/share/emacs/site-lisp/site-start.el
-        $out/bin/emacs --batch -f batch-byte-compile $out/share/emacs/site-lisp/site-start.el
-        
-        rm -rf $out/var
-        rm -rf $out/share/emacs/${version}/site-lisp
-        
-        mkdir -p $out/Applications
-        mv nextstep/Emacs.app $out/Applications
-      '';
-      };
-*/
-
-    coreEnv = with pkgs; buildEnv {
+    coreEnv = with pkgs;
+    buildEnv {
       name = "coreEnv";
       paths = [
         ag
+        alacritty
         ansible
         aspell
         aspellDicts.en
         autoconf
         automake
+        bat
         cabal-install
         cabal2nix
+        cachix
+        cargo
         cmake
         cntlm
         curl
@@ -101,6 +56,7 @@
         ghc
         git
         gnupg
+        gnuplot
         haskellPackages.alex
         haskellPackages.fast-tags
         haskellPackages.ghcid
@@ -112,10 +68,11 @@
         haskellPackages.stylish-haskell
         html-tidy
         idris
+        imagemagick
         jq
         leiningen
         libffi
-        llvm_5
+        llvm_6
         maven
         ncurses
         ncurses.dev
@@ -128,8 +85,12 @@
         python36
         python36Packages.ipython
         python36Packages.pip
+        python36Packages.pygments
         python36Packages.virtualenv
-        /* rustup */
+        # rustup
+        # rustracer
+        ripgrep
+        sbt
         scala
         shellcheck
         stack
@@ -146,3 +107,4 @@
 
   };
 }
+

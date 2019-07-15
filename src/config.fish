@@ -1,40 +1,14 @@
+# Nix
+set -xg PATH '/Users/jsm/.nix-profile/bin' $PATH
+
 # Theme setup
 set -g theme_nerd_fonts yes
 set -g theme_color_scheme terminal
 
-# Haskell stack install path
-set -xg PATH $HOME/.local/bin $PATH
-
-# SSL certificate file
-set -xg SSL_CERT_FILE $NIX_SSL_CERT_FILE
-
-# emacs alias
-function emacs
-  eval "$HOME/.nix-profile/Applications/Emacs.app/Contents/MacOS/Emacs $argv &"
-end
-
-# new emacs setup alias
-function newmacs
-  eval "$HOME/.nix-profile/Applications/Emacs.app/Contents/MacOS/Emacs -Q -l $HOME/workspace/dotfiles/newmacs/init.el $argv &"
-end
-
-# nix-shell, but with fish
-alias nix-fish='nix-shell --command fish'
-
-# Haskell tools
-function haskell-tools
-  stack install apply-refact hlint stylish-haskell hasktags hoogle intero fast-tags ghcid
-end
-
-# brings work secrets into scope as environment variables
-function work-secrets
-  eval "ansible-vault view $HOME/.secrets/work.fish.encrypted | source -"
-end
-
 # install the CBA root certificate
 function install-cba-root-cert
   if not set -q NIX_SSL_CERT_FILE
-    echo 'NIX_SSL_CERT_FILE is not set!' 
+    echo 'NIX_SSL_CERT_FILE is not set!'
     exit -1
   end
   sudo bash -c "/usr/bin/security find-certificate -c CBAInternalRootCA -p >> $NIX_SSL_CERT_FILE"

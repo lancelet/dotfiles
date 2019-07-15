@@ -1,130 +1,69 @@
 #!/usr/bin/env bash
-#
-# # Install / update script for dotfiles
-#
-# This script installs the user configuration. It should be idempotent (ie. it
-# can be run multiple times without changing the result), and thus functions as
-# both an installer and updater.
-
-# "Safe" bash
 set -euf -o pipefail
 
-# Base directory of this script
-declare -r base_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+readonly script_dir=\
+"$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+readonly src_dir="$script_dir/src"
 
-# Directories within the repo
-declare -r home_dir="${base_dir}/home"
-declare -r nix_dir="${base_dir}/nix"
-
-# Log function
-# Usage: log 'Message'
-function log() {
-    local msg="$1"
-    echo "* install.sh: ${msg}"
+# Install Nix if it hasn't been installed.
+install_nix() {
+  if [ ! -d /nix ]; then
+    mkdir /nix
+    readonly uid=$(id -u)
+    readonly gid=$(id -g)
+    sudo chown "$uid:$gid" /nix
+    sh <(curl https://nixos.org/nix/install) --no-daemon
+  fi
 }
 
-# Silent pushd and popd
-function silentpushd() {
-    local dir="$1"
-    pushd "${dir}" > /dev/null
-}
-function silentpopd() {
-    popd > /dev/null
+# Invoke the Nix environment.
+nix_env() {
+  set +u
+  source "$HOME/.nix-profile/etc/profile.d/nix.sh"
+  set -u
 }
 
-# Link dotfiles
-dotfiles=( '.spacemacs'                              \
-           '.config/fish/config.fish'                \
-           '.config/alacritty/alacritty.yml'         \
-           '.profile'                                \
-           '.secrets'                                \
-           '.aspell.conf'                            \
-           '.doom.d/config.el'                       \
-           '.doom.d/init.el'                         \
-         )
-function dotfile_ln() {
-    local src="${home_dir}/$1"
-    local tgt="${HOME}/$1"
-    log "Linking: $tgt -> $src"
-    ln -sfn "$src" "$tgt"
+# Set and update the Nix channel.
+update_nix_channel() {
+  readonly channel='nixpkgs-19.03-darwin'
+  nix-channel --add "https://nixos.org/channels/$channel" nixpkgs
+  nix-channel --update
 }
-mkdir -p "${HOME}/.config/fish"
-mkdir -p "${HOME}/.config/alacritty"
-mkdir -p "${HOME}/.doom.d"
-for dotfile in "${dotfiles[@]}"; do dotfile_ln "${dotfile}"; done
 
-# Install nix if necessary
-#if [ ! -d '/nix' ]; then
-#    log "/nix directory was not found: installing nix"
-#    bash <(curl https://nixos.org/nix/install)
-#else
-#    log "/nix directory exists; not re-installing nix"
-#fi
-#set +u # Must allow undefined variables temporarily for the nix-daemon.sh script
-#. /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
-#set -u
+# Nix
+install_nix
+nix_env
+update_nix_channel
+mkdir -p "$HOME/.nixpkgs"
+if [ ! -f "$HOME/.nixpkgs/config.nix" ]; then
+  ln -s "$src_dir/config.nix" "$HOME/.nixpkgs/config.nix"
+fi
+nix-env -iA nixpkgs.coreEnv
 
-# Add Nix channel nixpkgs-17.09-darwin
-#log "Adding Nix channel to nixpkgs-17.09-darwin"
-#nix-channel --add https://nixos.org/channels/nixpkgs-17.09-darwin nixpkgs-17.09-darwin
-
-# Copy the nix config across
-mkdir -p "${HOME}/.nixpkgs"
-function nixconfig_ln() {
-    local src="${nix_dir}/config.nix"
-    local tgt="${HOME}/.nixpkgs/config.nix"
-    log "Linking: ${tgt} -> ${src}"
-    ln -sf "${src}" "${tgt}"
-}
-nixconfig_ln
-
-# Update Nix
-#if [ -z ${NO_NIX_UPDATE+x} ]; then
-#    log 'Updating Nix'
-#    nix-channel --update
-#    nix-env -iA nixpkgs.coreEnv
-#else
-#    log 'NO_NIX_UPDATE was set; not updating Nix'
-#fi
-
-# TEMPORARY: Link /etc/ssl/cert.pem to $NIX_SSL_CERT_FILE (for curl)
-#   Issue: https://github.com/NixOS/nixpkgs/issues/8247
-if [ -f /etc/ssl/cert.pem ] || [ -L /etc/ssl/cert.pem ]; then
-    log "/etc/ssl/cert.pem exists already; not touching it."
+# Doom emacs
+if [ ! -d "$HOME/.emacs.d" ]; then
+  git clone https://github.com/hlissner/doom-emacs $HOME/.emacs.d
 else
-    log "TEMPORARY: linking /etc/ssl/cert.pem to ${NIX_SSL_CERT_FILE} - sorry, requires sudo"
-    sudo -- sh -c "mkdir -p /etc/ssl; ln -s ${NIX_SSL_CERT_FILE} /etc/ssl/cert.pem"
+  pushd "$HOME/.emacs.d" > /dev/null
+  git checkout develop
+  git pull --quiet
+  popd > /dev/null
+fi
+if [ ! -e "$HOME/.doom.d" ]; then
+  ln -s "$src_dir/doom.d" "$HOME/.doom.d"
 fi
 
-# Install / update doom-emacs
-if [ ! -d "${HOME}/.emacs.d" ]; then
-    log "Installing doom-emacs"
-    git clone https://github.com/hlissner/doom-emacs.git ~/.emacs.d
-    silentpushd "${HOME}/.emacs.d"
-    git checkout develop
-    silentpopd
-else
-    log "doom-emacs has been installed already; updating"
-    silentpushd "${HOME}/.emacs.d"
-    git pull --quiet
-    silentpopd
+# Profile files
+rm -f "$HOME/.profile"
+ln -s "$src_dir/profile" "$HOME/.profile"
+if [ ! -e "$HOME/.config/fish" ]; then
+  mkdir -p "$HOME/.config/fish"
+  ln -s "$src_dir/config.fish" "$HOME/.config/fish/config.fish"
+  ln -s "$src_dir/fish_variables" "$HOME/.config/fish/fish_variables"
 fi
 
-# Install "Oh My Fish" framework
-readonly omf_dir="${HOME}/.config/oh-my-fish"
-if [ ! -d "$omf_dir" ]; then
-    log "Cloning oh-my-fish git directory to $omf_dir"
-    silentpushd "${HOME}/.config"
-    git clone https://github.com/oh-my-fish/oh-my-fish
-    silendpopd
-else
-    log "oh-my-fish git directory exists at $omf_dir; updating"
-    silentpushd "$omf_dir"
-    git pull --quiet
-    silentpopd
+# Oh-my-fish
+if [ ! -e "$HOME/.config/omf" ]; then
+  curl -L https://get.oh-my.fish | fish
+  fish -c 'omf install bobthefish'
 fi
-log "Executing oh-my-fish installation"
-silentpushd "$omf_dir"
-bin/install --offline --yes
-silentpopd
-
