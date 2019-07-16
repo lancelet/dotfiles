@@ -8,7 +8,7 @@ readonly src_dir="$script_dir/src"
 # Install Nix if it hasn't been installed.
 install_nix() {
   if [ ! -d /nix ]; then
-    mkdir /nix
+    sudo mkdir /nix
     readonly uid=$(id -u)
     readonly gid=$(id -g)
     sudo chown "$uid:$gid" /nix
@@ -19,6 +19,7 @@ install_nix() {
 # Invoke the Nix environment.
 nix_env() {
   set +u
+  # shellcheck source=/dev/null
   source "$HOME/.nix-profile/etc/profile.d/nix.sh"
   set -u
 }
@@ -35,14 +36,14 @@ install_nix
 nix_env
 update_nix_channel
 mkdir -p "$HOME/.nixpkgs"
-if [ ! -f "$HOME/.nixpkgs/config.nix" ]; then
+if [ ! -e "$HOME/.nixpkgs/config.nix" ]; then
   ln -s "$src_dir/config.nix" "$HOME/.nixpkgs/config.nix"
 fi
 nix-env -iA nixpkgs.coreEnv
 
 # Doom emacs
 if [ ! -d "$HOME/.emacs.d" ]; then
-  git clone https://github.com/hlissner/doom-emacs $HOME/.emacs.d
+  git clone https://github.com/hlissner/doom-emacs "$HOME/.emacs.d"
 else
   pushd "$HOME/.emacs.d" > /dev/null
   git checkout develop
@@ -64,6 +65,6 @@ fi
 
 # Oh-my-fish
 if [ ! -e "$HOME/.config/omf" ]; then
-  curl -L https://get.oh-my.fish | fish
+  fish -c <$"(curl -L https://get.oh-my.fish)"
   fish -c 'omf install bobthefish'
 fi

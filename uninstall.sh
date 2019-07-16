@@ -10,7 +10,6 @@ rm -rf \
   ~/.emacs-saves \
   ~/.emacs.d \
   ~/.doom \
-  # ~/.ghc \
   ~/.gnuplot_history \
   ~/.hoogle \
   ~/.lesshst \
@@ -20,6 +19,5 @@ rm -rf \
   ~/.nix-profile \
   ~/.nixpkgs \
   ~/.profile \
-  # ~/.stack \
   ~/.texlive2018 \
   ~/.viminfo
