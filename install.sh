@@ -68,3 +68,9 @@ if [ ! -e "$HOME/.config/omf" ]; then
   fish -c <$"(curl -L https://get.oh-my.fish)"
   fish -c 'omf install bobthefish'
 fi
+
+# Alacritty
+if [ ! -e "$HOME/.config/alacritty" ]; then
+  mkdir -p "$HOME/.config/alacritty"
+  ln -s "$src_dir/alacritty.yml" "$HOME/.config/alacritty/alacritty.yml"
+fi

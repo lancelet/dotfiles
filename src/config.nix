@@ -95,6 +95,7 @@
         shellcheck
         stack
         texlive.combined.scheme-full
+        tmux
         travis
         tree
         vagrant
