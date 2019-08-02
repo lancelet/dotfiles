@@ -65,7 +65,7 @@ fi
 
 # Oh-my-fish
 if [ ! -e "$HOME/.config/omf" ]; then
-  fish -c <$"(curl -L https://get.oh-my.fish)"
+  curl -L https://get.oh-my.fish | fish
   fish -c 'omf install bobthefish'
 fi
 
