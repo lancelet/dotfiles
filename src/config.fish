@@ -1,5 +1,5 @@
 # Nix
-set -xg PATH '/Users/jsm/.nix-profile/bin' $PATH
+set -xg PATH "$HOME/.nix-profile/bin" $PATH
 
 # Theme setup
 set -g theme_nerd_fonts yes
