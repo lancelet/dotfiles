@@ -29,32 +29,31 @@
         '';
       };
 
+    baseEnv = with pkgs;
+    buildEnv {
+      name = "baseEnv";
+      paths = [
+        curl
+        emacs26
+        fish
+        git
+      ];
+    };
+
     coreEnv = with pkgs;
     buildEnv {
       name = "coreEnv";
       paths = [
-        ag
         alacritty
-        ansible
         aspell
         aspellDicts.en
         autoconf
         automake
         bat
-        cabal-install
-        cabal2nix
-        cachix
-        cargo
         cmake
         cntlm
-        curl
-        emacs26
-        enca
         ffmpeg
-        fish
-        fswatch
         ghc
-        git
         gnupg
         gnuplot
         haskellPackages.alex
@@ -66,39 +65,31 @@
         haskellPackages.hoogle
         haskellPackages.pandoc
         haskellPackages.stylish-haskell
-        html-tidy
         idris
         imagemagick
         jq
         leiningen
         libffi
-        llvm_6
         maven
         ncurses
         ncurses.dev
         neovim
         nix-prefetch-git
-        nodePackages.tern
         openssl
-        openssl.dev  # for Laurence's confluence sync tool
         pkgconfig
         python36
         python36Packages.ipython
         python36Packages.pip
         python36Packages.pygments
         python36Packages.virtualenv
-        # rustup
-        # rustracer
         ripgrep
         sbt
         scala
         shellcheck
         stack
         texlive.combined.scheme-full
-        tmux
         travis
         tree
-        vagrant
         vault
         wget
         which

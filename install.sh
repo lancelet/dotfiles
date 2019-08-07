@@ -39,19 +39,28 @@ mkdir -p "$HOME/.nixpkgs"
 if [ ! -e "$HOME/.nixpkgs/config.nix" ]; then
   ln -s "$src_dir/config.nix" "$HOME/.nixpkgs/config.nix"
 fi
-nix-env -iA nixpkgs.coreEnv
+nix-env -iA nixpkgs.baseEnv
 
 # Doom emacs
+#if [ ! -d "$HOME/.emacs.d" ]; then
+#  git clone https://github.com/hlissner/doom-emacs "$HOME/.emacs.d"
+#else
+#  pushd "$HOME/.emacs.d" > /dev/null
+#  git checkout develop
+#  git pull --quiet
+#  popd > /dev/null
+#fi
+#if [ ! -e "$HOME/.doom.d" ]; then
+#  ln -s "$src_dir/doom.d" "$HOME/.doom.d"
+#fi
+
+# Spacemacs
 if [ ! -d "$HOME/.emacs.d" ]; then
-  git clone https://github.com/hlissner/doom-emacs "$HOME/.emacs.d"
+  git clone https://github.com/syl20bnr/spacemacs "$HOME/.emacs.d"
 else
   pushd "$HOME/.emacs.d" > /dev/null
-  git checkout develop
-  git pull --quiet
+  git pull --quiet --prune
   popd > /dev/null
-fi
-if [ ! -e "$HOME/.doom.d" ]; then
-  ln -s "$src_dir/doom.d" "$HOME/.doom.d"
 fi
 
 # Profile files
@@ -65,7 +74,10 @@ fi
 
 # Oh-my-fish
 if [ ! -e "$HOME/.config/omf" ]; then
-  curl -L https://get.oh-my.fish | fish
+  tmpfile=$(mktemp /tmp/fish-install.script.XXXX)
+  curl -L https://get.oh-my.fish > "$tmpfile"
+  fish -c "fish $tmpfile --noninteractive --yes"
+  rm "$tmpfile"
   fish -c 'omf install bobthefish'
 fi
 
@@ -74,3 +86,6 @@ if [ ! -e "$HOME/.config/alacritty" ]; then
   mkdir -p "$HOME/.config/alacritty"
   ln -s "$src_dir/alacritty.yml" "$HOME/.config/alacritty/alacritty.yml"
 fi
+
+# Complete Nix install
+nix-env -iA nixpkgs.coreEnv
