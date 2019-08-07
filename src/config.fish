@@ -8,7 +8,7 @@ set -g theme_color_scheme terminal
 # Emacs
 function em
   export set EMACS_LAUNCHER=1
-  emacs $argv
+  emacs $argv &
 end
 
 # install the CBA root certificate

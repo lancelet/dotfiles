@@ -68,7 +68,8 @@ if [ ! -e "$HOME/.config/omf" ]; then
   curl -L https://get.oh-my.fish > "$tmpfile"
   fish -c "fish $tmpfile --noninteractive --yes"
   rm "$tmpfile"
-  fish -c 'omf install bobthefish'
+  fish -c 'omf install pure'
+  fish -c 'ln -s $OMF_PATH/themes/pure/conf.d/pure.fish ~/.config/fish/conf.d/pure.fish'
 fi
 
 # Alacritty

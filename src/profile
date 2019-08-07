@@ -4,3 +4,5 @@ fi
 if [ -z ${EMACS_LAUNCHER+x} ]; then
   exec fish
 fi
+
+export PATH="$HOME/.cargo/bin:$PATH"

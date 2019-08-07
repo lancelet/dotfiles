@@ -65,7 +65,7 @@
         haskellPackages.hoogle
         haskellPackages.pandoc
         haskellPackages.stylish-haskell
-        idris
+        # idris
         imagemagick
         jq
         leiningen
