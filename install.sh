@@ -41,19 +41,6 @@ if [ ! -e "$HOME/.nixpkgs/config.nix" ]; then
 fi
 nix-env -iA nixpkgs.baseEnv
 
-# Doom emacs
-#if [ ! -d "$HOME/.emacs.d" ]; then
-#  git clone https://github.com/hlissner/doom-emacs "$HOME/.emacs.d"
-#else
-#  pushd "$HOME/.emacs.d" > /dev/null
-#  git checkout develop
-#  git pull --quiet
-#  popd > /dev/null
-#fi
-#if [ ! -e "$HOME/.doom.d" ]; then
-#  ln -s "$src_dir/doom.d" "$HOME/.doom.d"
-#fi
-
 # Spacemacs
 if [ ! -d "$HOME/.emacs.d" ]; then
   git clone https://github.com/syl20bnr/spacemacs "$HOME/.emacs.d"
@@ -61,6 +48,9 @@ else
   pushd "$HOME/.emacs.d" > /dev/null
   git pull --quiet --prune
   popd > /dev/null
+fi
+if [ ! -e "$HOME/.spacemacs" ]; then
+  ln -s "$src_dir/dotspacemacs" "$HOME/.spacemacs"
 fi
 
 # Profile files

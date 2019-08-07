@@ -5,6 +5,12 @@ set -xg PATH "$HOME/.nix-profile/bin" $PATH
 set -g theme_nerd_fonts yes
 set -g theme_color_scheme terminal
 
+# Emacs
+function em
+  export set EMACS_LAUNCHER=1
+  emacs $argv
+end
+
 # install the CBA root certificate
 function install-cba-root-cert
   if not set -q NIX_SSL_CERT_FILE

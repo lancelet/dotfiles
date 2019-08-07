@@ -1,4 +1,6 @@
 if [ -e ${HOME}/.nix-profile/etc/profile.d/nix.sh ]; then 
   . ${HOME}/.nix-profile/etc/profile.d/nix.sh
 fi
-exec fish
+if [ -z ${EMACS_LAUNCHER+x} ]; then
+  exec fish
+fi
