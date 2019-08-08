@@ -323,6 +323,8 @@ you should place your code here."
         '((width . 110)
           (height . 56)
           ))
+  ;; Fill indicator color
+  (setq fci-rule-color "#0A0A0A")
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
