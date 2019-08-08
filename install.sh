@@ -78,5 +78,10 @@ if [ ! -e "$HOME/.config/alacritty" ]; then
   ln -s "$src_dir/alacritty.yml" "$HOME/.config/alacritty/alacritty.yml"
 fi
 
+# aspell dictionary configuration
+if [ ! -d "$HOME/.aspell.conf" ]; then
+  ln -s "$src_dir/aspell.conf" "$HOME/.aspell.conf"
+fi
+
 # Complete Nix install
 nix-env -iA nixpkgs.coreEnv
