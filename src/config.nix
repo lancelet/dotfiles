@@ -76,6 +76,7 @@
         neovim
         nix-prefetch-git
         openssl
+        pcre
         pkgconfig
         python36
         python36Packages.ipython
@@ -99,4 +100,3 @@
 
   };
 }
-
