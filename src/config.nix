@@ -50,6 +50,7 @@
         autoconf
         automake
         bat
+        cabal-install
         cmake
         cntlm
         ffmpeg
