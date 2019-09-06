@@ -1,6 +1,9 @@
 # Nix
 set -xg PATH "$HOME/.nix-profile/bin" $PATH
 
+# GHCUP
+bass source "$HOME/.ghcup/env"
+
 # Theme setup
 set -g theme_nerd_fonts yes
 set -g theme_color_scheme terminal
