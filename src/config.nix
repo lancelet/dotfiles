@@ -88,7 +88,6 @@
         sbt
         scala
         shellcheck
-        stack
         texlive.combined.scheme-full
         travis
         tree

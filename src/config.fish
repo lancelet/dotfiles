@@ -1,6 +1,9 @@
 # Nix
 set -xg PATH "$HOME/.nix-profile/bin" $PATH
 
+# stack
+set -xg PATH "$HOME/.local/bin" $PATH
+
 # GHCUP
 bass source "$HOME/.ghcup/env"
 
