@@ -80,7 +80,7 @@ if [ ! -e "$HOME/.config/alacritty" ]; then
 fi
 
 # aspell dictionary configuration
-if [ ! -d "$HOME/.aspell.conf" ]; then
+if [ ! -e "$HOME/.aspell.conf" ]; then
   ln -s "$src_dir/aspell.conf" "$HOME/.aspell.conf"
 fi
 
