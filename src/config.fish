@@ -1,5 +1,7 @@
 # Nix
 set -xg PATH "$HOME/.nix-profile/bin" $PATH
+# Temporary fix for: https://github.com/NixOS/nix/issues/1865
+set -xg NIX_PATH "nixpkgs=$HOME/.nix-defexpr/channels/nixpkgs"
 
 # stack
 set -xg PATH "$HOME/.local/bin" $PATH
