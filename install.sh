@@ -55,7 +55,9 @@ fi
 
 # Profile files
 rm -f "$HOME/.profile"
+rm -f "$HOME/.zprofile"
 ln -s "$src_dir/profile" "$HOME/.profile"
+ln -s "$src_dir/profile" "$HOME/.zprofile"
 if [ ! -e "$HOME/.config/fish" ]; then
   mkdir -p "$HOME/.config/fish"
   ln -s "$src_dir/config.fish" "$HOME/.config/fish/config.fish"
