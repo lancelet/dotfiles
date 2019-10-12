@@ -26,7 +26,7 @@ nix_env() {
 
 # Set and update the Nix channel.
 update_nix_channel() {
-  readonly channel='nixpkgs-19.03-darwin'
+  readonly channel='nixpkgs-19.09-darwin'
   nix-channel --add "https://nixos.org/channels/$channel" nixpkgs
   nix-channel --update
 }
@@ -41,16 +41,9 @@ if [ ! -e "$HOME/.nixpkgs/config.nix" ]; then
 fi
 nix-env -iA nixpkgs.baseEnv
 
-# Spacemacs
-if [ ! -d "$HOME/.emacs.d" ]; then
-  git clone https://github.com/syl20bnr/spacemacs "$HOME/.emacs.d"
-else
-  pushd "$HOME/.emacs.d" > /dev/null
-  git pull --quiet --prune
-  popd > /dev/null
-fi
-if [ ! -e "$HOME/.spacemacs" ]; then
-  ln -s "$src_dir/dotspacemacs" "$HOME/.spacemacs"
+# Spacevim
+if [ ! -d "$HOME/.SpaceVim.d" ]; then
+  ln -s "$src_dir/SpaceVim.d" "$HOME/.SpaceVim.d"
 fi
 
 # Profile files
@@ -71,7 +64,7 @@ if [ ! -e "$HOME/.config/omf" ]; then
   fish -c "fish $tmpfile --noninteractive --yes"
   rm "$tmpfile"
   fish -c 'omf install pure'
-  fish -c 'ln -s $OMF_PATH/themes/pure/conf.d/pure.fish ~/.config/fish/conf.d/pure.fish'
+  fish -c "ln -s $OMF_PATH/themes/pure/conf.d/pure.fish ~/.config/fish/conf.d/pure.fish"
   fish -c 'omf install bass'
 fi
 
