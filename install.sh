@@ -64,7 +64,7 @@ if [ ! -e "$HOME/.config/omf" ]; then
   fish -c "fish $tmpfile --noninteractive --yes"
   rm "$tmpfile"
   fish -c 'omf install pure'
-  fish -c "ln -s $OMF_PATH/themes/pure/conf.d/pure.fish ~/.config/fish/conf.d/pure.fish"
+  fish -c 'ln -s $OMF_PATH/themes/pure/conf.d/pure.fish ~/.config/fish/conf.d/pure.fish'
   fish -c 'omf install bass'
 fi
 
