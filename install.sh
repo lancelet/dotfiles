@@ -41,9 +41,9 @@ if [ ! -e "$HOME/.nixpkgs/config.nix" ]; then
 fi
 nix-env -iA nixpkgs.baseEnv
 
-# Spacevim
-if [ ! -d "$HOME/.SpaceVim.d" ]; then
-  ln -s "$src_dir/SpaceVim.d" "$HOME/.SpaceVim.d"
+# Spacemacs
+if [ ! -e "$HOME/.spacemacs" ]; then
+  ln -s "$src_dir/spacemacs" "$HOME/.spacemacs"
 fi
 
 # Profile files
