@@ -1,4 +1,5 @@
 {
+  allowUnfree = true;
   packageOverrides = pkgs: rec {
 
     cntlm = with pkgs.stdenv.lib;
@@ -76,6 +77,7 @@
         ncurses.dev
         neovim
         nix-prefetch-git
+        openscad
         openssl
         pcre
         pkgconfig
