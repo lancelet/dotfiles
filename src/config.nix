@@ -77,7 +77,6 @@
         ncurses.dev
         neovim
         nix-prefetch-git
-        openscad
         openssl
         pcre
         pkgconfig
