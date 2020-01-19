@@ -6,6 +6,9 @@ set -xg NIX_PATH "nixpkgs=$HOME/.nix-defexpr/channels/nixpkgs"
 # stack
 set -xg PATH "$HOME/.local/bin" $PATH
 
+# vscode
+set -xg PATH "/Applications/Visual Studio Code.app/Contents/Resources/app/bin" $PATH
+
 # GHCUP
 bass source "$HOME/.ghcup/env"
 
