@@ -41,6 +41,12 @@ if [ ! -e "$HOME/.nixpkgs/config.nix" ]; then
 fi
 nix-env -iA nixpkgs.baseEnv
 
+# Nix overlays
+if [ ! -e "$HOME/.config/nixpkgs/overlays.nix" ]; then
+  mkdir -p "$HOME/.config/nixpkgs"
+  ln -s "$src_dir/overlays.nix" "$HOME/.config/nixpkgs/overlays.nix"
+fi
+
 # Spacemacs
 if [ ! -e "$HOME/.spacemacs" ]; then
   ln -s "$src_dir/spacemacs" "$HOME/.spacemacs"

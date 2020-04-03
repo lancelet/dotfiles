@@ -35,7 +35,7 @@
       name = "baseEnv";
       paths = [
         curl
-        emacs26
+        neovim
         fish
         git
       ];
@@ -54,6 +54,7 @@
         cabal-install
         cmake
         cntlm
+        emacsUnstable
         ffmpeg
         ghc
         gnupg
@@ -75,7 +76,6 @@
         maven
         ncurses
         ncurses.dev
-        neovim
         nix-prefetch-git
         openssl
         pcre
