@@ -54,8 +54,9 @@ This function should only modify configuration layer settings."
      version-control
      treemacs
      ;; custom layers
-     (lsp :variables lsp-ui-sideline-enable t)
      (haskell :variables haskell-completion-backend 'lsp)
+     (lsp :variables lsp-ui-sideline-enable t)
+     html
      )
 
    ;; List of additional packages that will be installed without being
