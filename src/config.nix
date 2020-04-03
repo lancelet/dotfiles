@@ -54,7 +54,6 @@
         cabal-install
         cmake
         cntlm
-        emacsUnstable
         ffmpeg
         ghc
         gnupg
