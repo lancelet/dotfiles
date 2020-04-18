@@ -64,7 +64,6 @@
         haskellPackages.happy
         haskellPackages.hasktags
         haskellPackages.hlint
-        haskellPackages.hoogle
         haskellPackages.pandoc
         haskellPackages.stylish-haskell
         # idris
