@@ -58,6 +58,7 @@ This function should only modify configuration layer settings."
      (scala :variables scala-backend 'scala-metals)
      (lsp :variables lsp-ui-sideline-enable t)
      html
+     yaml
      )
 
    ;; List of additional packages that will be installed without being
