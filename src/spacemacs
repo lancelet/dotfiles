@@ -54,7 +54,7 @@ This function should only modify configuration layer settings."
      version-control
      treemacs
      ;; custom layers
-     (haskell :variables haskell-completion-backend 'lsp)
+     (haskell :variables haskell-completion-backend 'dante)
      (scala :variables scala-backend 'scala-metals)
      (lsp :variables lsp-ui-sideline-enable t)
      html
