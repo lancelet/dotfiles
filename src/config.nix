@@ -66,7 +66,7 @@
         haskellPackages.hasktags
         haskellPackages.hlint
         haskellPackages.pandoc
-        haskellPackages.stylish-haskell
+        # haskellPackages.stylish-haskell # marked as broken last time I checked
         # idris
         imagemagick
         jq

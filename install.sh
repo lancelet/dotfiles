@@ -26,7 +26,7 @@ nix_env() {
 
 # Set and update the Nix channel.
 update_nix_channel() {
-  readonly channel='nixpkgs-19.09-darwin'
+  readonly channel='nixpkgs-20.03-darwin'
   nix-channel --add "https://nixos.org/channels/$channel" nixpkgs
   nix-channel --update
 }
