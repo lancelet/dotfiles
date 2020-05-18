@@ -58,6 +58,7 @@ This function should only modify configuration layer settings."
      (scala :variables scala-backend 'scala-metals)
      (lsp :variables lsp-ui-sideline-enable t)
      html
+     shaders
      yaml
      )
 
