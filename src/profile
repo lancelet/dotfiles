@@ -1,8 +1,0 @@
-if [ -e ${HOME}/.nix-profile/etc/profile.d/nix.sh ]; then 
-  . ${HOME}/.nix-profile/etc/profile.d/nix.sh
-fi
-if [ -z ${EMACS_LAUNCHER+x} ]; then
-  exec fish
-fi
-
-export PATH="$HOME/.cargo/bin:$PATH"
