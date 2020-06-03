@@ -1,21 +1,17 @@
 { config, pkgs, ... }:
 
 {
-  # List packages installed in system profile. To search by name, run:
-  # $ nix-env -qaP | grep wget
+  # List packages installed in system profile.
   environment.systemPackages =
-    [ pkgs.vim
-      pkgs.neovim
-      pkgs.oh-my-zsh
-      pkgs.pure-prompt
-      pkgs.powerline-fonts
+    [
       pkgs.emacsMacport
       pkgs.gnupg
+      pkgs.neovim
+      pkgs.oh-my-zsh
+      pkgs.powerline-fonts
+      pkgs.pure-prompt
+      pkgs.vim
     ];
-
-  # Auto upgrade nix package and the daemon service.
-  # services.nix-daemon.enable = true;
-  # nix.package = pkgs.nix;
 
   # Create /etc/bashrc that loads the nix-darwin environment.
   programs.bash.enable = true;
