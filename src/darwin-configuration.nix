@@ -10,6 +10,7 @@
       pkgs.pure-prompt
       pkgs.powerline-fonts
       pkgs.emacsMacport
+      pkgs.gnupg
     ];
 
   # Auto upgrade nix package and the daemon service.
