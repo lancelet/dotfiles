@@ -25,3 +25,4 @@
 1. Install [iTerm2](https://www.iterm2.com/).
 1. Set "FuraCode Nerd Font Mono", Retina, 14pt as the iTerm2 font.
 1. Load the `iceberg-customized.itermcolors` color scheme for iTerm2.
+1. Install [doom-emacs](https://github.com/hlissner/doom-emacs).
