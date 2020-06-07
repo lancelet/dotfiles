@@ -7,15 +7,16 @@
       pkgs.aspell
       pkgs.aspellDicts.en
       pkgs.curl
-      pkgs.git
       pkgs.emacsMacport
+      pkgs.git
       pkgs.gnupg
+      pkgs.haskellPackages.stack
       pkgs.neovim
       pkgs.oh-my-zsh
       pkgs.powerline-fonts
       pkgs.pure-prompt
-      pkgs.vim
       pkgs.tree
+      pkgs.vim
     ];
 
   # Create /etc/bashrc that loads the nix-darwin environment.
@@ -33,6 +34,7 @@
     plugins=(git git-extras)
     alias emacs=/run/current-system/Applications/Emacs.app/Contents/MacOS/Emacs.sh
     source "$ZSH/oh-my-zsh.sh"
+    export PATH=$PATH:~/.local/bin
   '';
 
   # Used for backwards compatibility, please read the changelog before changing.
