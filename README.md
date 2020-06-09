@@ -6,6 +6,12 @@
 1. Install [nix-darwin](https://github.com/LnL7/nix-darwin).
 1. Run `./link.sh` to link dotfiles to correct locations (fix any issues
    reported).
+1. Move current zprofile and zshrc:
+    ```
+    sudo mv /etc/zprofile /etc/zprofile.local
+    sudo mv /etc/zshrc /etc/zshrc.local
+    ```
+   Then edit `/etc/zshrc.local` to comment-out the default `PROMPT`.
 1. Update nix-darwin by running:
     ```
     darwin-rebuild build
