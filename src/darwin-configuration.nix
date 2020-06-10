@@ -19,6 +19,8 @@
       pkgs.vim
     ];
 
+  environment.loginShell = "zsh";
+
   # Create /etc/bashrc that loads the nix-darwin environment.
   programs.bash.enable = true;
   programs.zsh.enable = true;
@@ -30,11 +32,16 @@
   programs.zsh.interactiveShellInit = ''
     export ZSH="${pkgs.oh-my-zsh}/share/oh-my-zsh"
     export ASPELL_CONF="data-dir ${pkgs.aspellDicts.en}/lib/aspell"
-    ZSH_THEME=""
+    export PATH="$PATH":~/.local/bin
+    export EMACS=/run/current-system/Applications/Emacs.app/Contents/MacOS/Emacs
+    export ZSH_THEME=""
     plugins=(git git-extras)
     alias emacs=/run/current-system/Applications/Emacs.app/Contents/MacOS/Emacs.sh
     source "$ZSH/oh-my-zsh.sh"
-    export PATH=$PATH:~/.local/bin
+    # Bring in extra stuff on a work machine
+    if [ $(hostname) = 'C02X1KM2JG5H' ]; then
+      . ~/workspace/dotfiles/src/wextra.sh
+    fi
   '';
 
   # Used for backwards compatibility, please read the changelog before changing.
