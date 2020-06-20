@@ -17,7 +17,9 @@
       pkgs.oh-my-zsh
       pkgs.powerline-fonts
       pkgs.pure-prompt
+      pkgs.purescript
       pkgs.python3
+      pkgs.spago  # Purescript build/package tool
       pkgs.tree
       pkgs.vim
     ];
