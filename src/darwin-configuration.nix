@@ -10,11 +10,14 @@
       pkgs.emacsMacport
       pkgs.git
       pkgs.gnupg
+      pkgs.haskellPackages.cabal-install
       pkgs.haskellPackages.stack
       pkgs.neovim
+      pkgs.nodejs
       pkgs.oh-my-zsh
       pkgs.powerline-fonts
       pkgs.pure-prompt
+      pkgs.python3
       pkgs.tree
       pkgs.vim
     ];
