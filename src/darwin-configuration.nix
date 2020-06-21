@@ -13,6 +13,7 @@
       pkgs.haskellPackages.cabal-install
       pkgs.haskellPackages.stack
       pkgs.neovim
+      pkgs.nodePackages.typescript
       pkgs.nodejs
       pkgs.oh-my-zsh
       pkgs.powerline-fonts
