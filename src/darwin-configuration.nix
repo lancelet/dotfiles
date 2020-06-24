@@ -21,6 +21,7 @@
       pkgs.purescript
       pkgs.python3
       pkgs.spago  # Purescript build/package tool
+      pkgs.texlive.combined.scheme-full  # note: may need to fix zziplib bug: https://github.com/gdraheim/zziplib/pull/96
       pkgs.tree
       pkgs.vim
     ];
