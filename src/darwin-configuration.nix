@@ -9,6 +9,7 @@
       pkgs.bat
       pkgs.curl
       pkgs.emacsMacport
+      pkgs.fd
       pkgs.git
       pkgs.gnupg
       pkgs.haskellPackages.cabal-install

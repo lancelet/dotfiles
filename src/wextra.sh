@@ -47,3 +47,20 @@ function mcaoff () {
 function mcaon() {
     sudo /usr/local/McAfee/StatefulFirewall/bin/StatefullFirewallControl start
 }
+
+JVM_OPTS=""
+# use our internal repository list
+JVM_OPTS="$JVM_OPTS -Dsbt.override.build.repos=true"
+JVM_OPTS="$JVM_OPTS -Dsbt.repository.config=$HOME/workspace/tooling.repositories/repositories"
+# use CNTLM proxy
+JVM_OPTS="$JVM_OPTS -Dhttp.proxyHost=localhost -Dhttp.proxyPort=3128"
+JVM_OPTS="$JVM_OPTS -Dhttps.proxyHost=localhost -Dhttps.proxyPort=3128"
+# performance options handy for sbt
+JVM_OPTS="$JVM_OPTS -Xms512m"
+JVM_OPTS="$JVM_OPTS -Xmx3g"
+JVM_OPTS="$JVM_OPTS -XX:+CMSClassUnloadingEnabled"
+JVM_OPTS="$JVM_OPTS -XX:+UseConcMarkSweepGC"
+# misc options
+JVM_OPTS="$JVM_OPTS -Djava.io.tmpdir=$HOME/workspace/tmp"
+JVM_OPTS="$JVM_OPTS -Dfile.encoding=UTF8"
+export JVM_OPTS
