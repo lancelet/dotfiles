@@ -44,7 +44,7 @@
   programs.zsh.interactiveShellInit = ''
     export ZSH="${pkgs.oh-my-zsh}/share/oh-my-zsh"
     export ASPELL_CONF="data-dir ${pkgs.aspellDicts.en}/lib/aspell"
-    export PATH="$PATH":~/.local/bin
+    export PATH="$PATH":~/.local/bin:~/.cargo/bin
     export EMACS=/run/current-system/Applications/Emacs.app/Contents/MacOS/Emacs
     export ZSH_THEME=""
     plugins=(git git-extras)

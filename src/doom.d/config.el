@@ -55,6 +55,9 @@
 ;; You can also try 'gd' (or 'C-c g d') to jump to their definition and see how
 ;; they are implemented.
 
+;; Include dex mode
+(load "~/workspace/dex-lang/misc/dex.el")
+
 ;; Set up haskell-language-server for lsp-haskell
 (use-package lsp-haskell
  :ensure t
