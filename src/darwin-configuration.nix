@@ -25,6 +25,7 @@
       pkgs.python38Packages.pygments
       pkgs.ripgrep
       pkgs.ripgrep-all
+      pkgs.shellcheck
       pkgs.spago  # Purescript build/package tool
       pkgs.texlive.combined.scheme-full  # note: may need to fix zziplib bug: https://github.com/gdraheim/zziplib/pull/96
       pkgs.tree
