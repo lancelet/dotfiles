@@ -50,6 +50,7 @@
     plugins=(git git-extras)
     alias emacs=/run/current-system/Applications/Emacs.app/Contents/MacOS/Emacs.sh
     source "$ZSH/oh-my-zsh.sh"
+    source ~/.ghcup/env
     # Bring in extra stuff on a work machine
     if [ $(hostname) = 'C02X1KM2JG5H' ]; then
       . ~/workspace/dotfiles/src/wextra.sh
