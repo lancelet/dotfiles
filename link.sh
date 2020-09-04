@@ -30,3 +30,5 @@ function linksrc() {
 
 linksrc darwin-configuration.nix $HOME/.nixpkgs/darwin-configuration.nix
 linksrc doom.d                   $HOME/.doom.d
+linksrc vscode/settings.json     "$HOME/Library/Application Support/Code/User/settings.json"
+linksrc vscode/keybindings.json  "$HOME/Library/Application Support/Code/User/keybindings.json"
