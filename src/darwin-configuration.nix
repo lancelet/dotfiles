@@ -47,6 +47,8 @@
     export PATH="$PATH":~/.local/bin:~/.cargo/bin
     export EMACS=/run/current-system/Applications/Emacs.app/Contents/MacOS/Emacs
     export ZSH_THEME=""
+    export VISUAL="nvim"
+    export EDITOR="$VISUAL"
     plugins=(git git-extras)
     alias emacs=/run/current-system/Applications/Emacs.app/Contents/MacOS/Emacs.sh
     source "$ZSH/oh-my-zsh.sh"
