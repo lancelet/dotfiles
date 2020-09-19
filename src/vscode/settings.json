@@ -1,3 +1,5 @@
 {
-    "workbench.colorTheme": "Gruvbox Dark Medium"
+    "workbench.colorTheme": "Gruvbox Dark Medium",
+    "window.zoomLevel": 1,
+    "vim.useSystemClipboard": true
 }
