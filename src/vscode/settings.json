@@ -4,5 +4,10 @@
     "vim.leader": " ",
     "vim.useSystemClipboard": true,
     "window.zoomLevel": 1,
-    "workbench.colorTheme": "Gruvbox Dark Medium"
+    "workbench.colorTheme": "Gruvbox Dark Medium",
+    "editor.fontFamily": "FuraCode Nerd Font Mono",
+    "editor.rulers": [80, 100],
+    "workbench.colorCustomizations": {
+        "editorRuler.foreground": "#2f2e2d"
+    }
 }
