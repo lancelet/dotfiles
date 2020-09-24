@@ -9,5 +9,7 @@
     "editor.rulers": [80, 100],
     "workbench.colorCustomizations": {
         "editorRuler.foreground": "#2f2e2d"
-    }
+    },
+    "gitlens.views.repositories.files.layout": "list",
+    "gitlens.currentLine.enabled": false
 }
