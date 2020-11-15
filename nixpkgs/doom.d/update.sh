@@ -1,4 +1,9 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
+
+# Bring in ghcup environment for emacs environment generation
+if [ -e "$HOME/.ghcup/env" ]; then
+    source "$HOME/.ghcup/env"
+fi
 
 typeset -r doom_dir="$HOME/.emacs.d"
 
