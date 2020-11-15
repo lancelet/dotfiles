@@ -15,6 +15,12 @@
 
   # Auto upgrade nix package.
   nix.package = pkgs.nix;
+  nix.binaryCachePublicKeys = [
+    "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="
+  ];
+  nix.binaryCaches = [
+    "https://hydra.iohk.io"
+  ];
 
   programs.zsh = {
     enable = true;
@@ -39,7 +45,9 @@
       [
 	      gnupg
 	      ripgrep
+        cabal-install
         emacs
+        ghc
         git
         iterm2
         neovim
@@ -63,6 +71,11 @@
 	          file = "p10k.zsh";
 	        }
         ];
+        initExtra = ''
+          if [ -e ~/.ghcup/env ]; then
+            source ~/.ghcup/env
+          fi
+        '';
       };
 
       # Doom emacs config; the update script installs doom emacs if it's
