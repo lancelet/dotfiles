@@ -5,16 +5,13 @@
   <home-manager/nix-darwin>
   ];
 
+  # These are mostly packages that have to become Mac apps.
   environment.systemPackages = 
   with pkgs;
   [
     emacs
     iterm2
   ];
-
-  # Use a custom configuration.nix location.
-  # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
-  # environment.darwinConfig = "$HOME/.config/nixpkgs/darwin/configuration.nix";
 
   # Auto upgrade nix package.
   nix.package = pkgs.nix;
@@ -46,6 +43,7 @@
         git
         iterm2
         neovim
+        niv
         vim
         zsh-powerlevel10k
       ];
