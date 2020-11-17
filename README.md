@@ -71,3 +71,7 @@ To bootstrap a macOS "Big Sur" machine:
 Remember also to install:
   - Rhino3D
   - AppStore apps
+
+## macOS bugs
+
+- https://github.com/NixOS/nixpkgs/issues/91748
