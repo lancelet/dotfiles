@@ -15,3 +15,4 @@ else
 fi
 
 "$doom_dir/bin/doom" sync
+"$doom_dir/bin/doom" env
