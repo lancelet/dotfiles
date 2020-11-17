@@ -47,6 +47,7 @@
         ripgrep
         cabal-install
         emacs
+        fd
         ghc
         git
         iterm2
@@ -87,6 +88,11 @@
 
           alias ls='ls -G'
           export EDITOR='nvim'
+
+	  # Bring in extra stuff on a work machine
+	  if [ $(hostname) = 'C02X1KM2JG5H' ]; then
+            source work-extra.sh
+	  fi
         '';
       };
 
