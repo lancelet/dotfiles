@@ -61,6 +61,10 @@ To bootstrap a macOS "Big Sur" machine:
    ```bash
    darwin-rebuild switch
    ```
+1. Import GPG private key (required before pushing Git signed commits):
+   ```bash
+   gpg --import <private-key.asc>
+   ```
 
 ## macOS Commercial Apps
 

@@ -43,8 +43,8 @@
     home.packages =
       with pkgs;
       [
-	      gnupg
-	      ripgrep
+        gnupg
+        ripgrep
         cabal-install
         emacs
         ghc
@@ -56,25 +56,37 @@
         zsh-powerlevel10k
       ];
       programs.fzf.enable = true;
+      programs.git = {
+        enable = true;
+        userName = "Jonathan Merritt";
+        userEmail = "j.s.merritt@gmail.com";
+        signing = {
+          key = "A54D78A5ACFA0DBF895B6E06CD2DE203BFE4FBF9";
+          signByDefault = true;
+        };
+      };
       programs.zsh = {
         enable = true;
         enableCompletion = true;
         plugins = [
           {
             name = "powerlevel10k";
-	          src = pkgs.zsh-powerlevel10k;
-	          file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+            src = pkgs.zsh-powerlevel10k;
+            file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
           }
-	        {
+          {
             name = "powerlevel10k-config";
-	          src = lib.cleanSource ./p10k-config;
-	          file = "p10k.zsh";
-	        }
+            src = lib.cleanSource ./p10k-config;
+            file = "p10k.zsh";
+          }
         ];
         initExtra = ''
           if [ -e ~/.ghcup/env ]; then
-            source ~/.ghcup/env
+          source ~/.ghcup/env
           fi
+
+          alias ls='ls -G'
+          export EDITOR='nvim'
         '';
       };
 
