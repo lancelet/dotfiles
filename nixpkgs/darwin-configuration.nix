@@ -53,6 +53,8 @@
         iterm2
         neovim
         niv
+        texlive.combined.scheme-full
+	tmux
         vim
         zsh-powerlevel10k
       ];
@@ -102,6 +104,12 @@
         source = ./doom.d;
         recursive = true;
         onChange = "~/.doom.d/update.sh";
+      };
+
+      home.file.".config/nvim" = {
+	source = ./nvim;
+	recursive = true;
+	onChange = "~/.config/nvim/update.sh";
       };
   };
 }
