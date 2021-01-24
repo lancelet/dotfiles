@@ -55,3 +55,7 @@ set clipboard+=unnamedplus
 " Keyboard configuration
 :let mapleader = "\<Space>"
 
+
+" trigger `autoread` when files changes on disk
+" use :checktime to check buffers
+set autoread
