@@ -48,6 +48,10 @@ let g:lightline = {
     \ }
 
 
+" Clipboard
+set clipboard+=unnamedplus
+
+
 " Keyboard configuration
 :let mapleader = "\<Space>"
 
