@@ -54,7 +54,7 @@
         neovim
         niv
         texlive.combined.scheme-full
-	tmux
+        tmux
         vim
         zsh-powerlevel10k
       ];
@@ -91,10 +91,10 @@
           alias ls='ls -G'
           export EDITOR='nvim'
 
-	  # Bring in extra stuff on a work machine
-	  if [ $(hostname) = 'C02X1KM2JG5H' ]; then
-            source work-extra.sh
-	  fi
+          # Bring in extra stuff on a work machine
+          if [ $(hostname) = 'C02X1KM2JG5H' ]; then
+              source work-extra.sh
+	      fi
         '';
       };
 
@@ -106,10 +106,17 @@
         onChange = "~/.doom.d/update.sh";
       };
 
+      # neovim configuration
       home.file.".config/nvim" = {
-	source = ./nvim;
-	recursive = true;
-	onChange = "~/.config/nvim/update.sh";
+	    source = ./nvim;
+	    recursive = true;
+	    onChange = "~/.config/nvim/update.sh";
+      };
+
+      # tmux config
+      home.file.".tmux.conf" = {
+        source = ./tmux.conf;
+        recursive = false;
       };
   };
 }

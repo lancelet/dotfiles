@@ -24,6 +24,9 @@ Plug 'itchyny/lightline.vim'
 " easymotion
 Plug 'easymotion/vim-easymotion'
 
+" vim-nix
+Plug 'LnL7/vim-nix'
+
 call plug#end()
 
 
@@ -47,3 +50,4 @@ let g:lightline = {
 
 " Keyboard configuration
 :let mapleader = "\<Space>"
+
