@@ -47,6 +47,7 @@
         cabal-install
         dvtm
         emacs
+        emacs-all-the-icons-fonts
         fd
         ghc
         git
