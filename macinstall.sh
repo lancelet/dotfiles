@@ -37,3 +37,4 @@ nix-channel --add \
 nix-channel --update
 nix-build https://github.com/LnL7/nix-darwin/archive/master.tar.gz -A installer
 echo 'n y' | ./result/bin/darwin-installer
+rm result
