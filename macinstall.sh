@@ -6,6 +6,7 @@ echo 'dotfiles installation commencing...'
 
 echo '... installing MacOS XCode Command Line Tools'
 xcode-select --install
+read -p 'Press any key to resume (after XCode Command Line Tools installation) ...'
 
 echo '... installing Nix'
 sh <(curl -L https://nixos.org/nix/install) \
