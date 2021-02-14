@@ -4,6 +4,15 @@
 
 echo 'dotfiles installation commencing...'
 
+echo '... installing iTerm2'
+mkdir -p ~/Applications
+pushd ~/Applications
+curl -L https://iterm2.com/downloads/stable/iTerm2-3_4_4.zip -o iTerm2.zip
+unzip iTerm2.zip
+rm iTerm2.zip
+xattr -dr com.apple.quarantine iTerm.app
+popd
+
 echo '... installing Nix'
 sh <(curl -L https://nixos.org/nix/install) \
     --darwin-use-unencrypted-nix-store-volume
