@@ -50,5 +50,10 @@ nix-channel --add \
     home-manager
 nix-channel --update
 nix-build https://github.com/LnL7/nix-darwin/archive/master.tar.gz -A installer
-"$HOME/workspace/dotfiles/nix-darwin-installer.exp"
+read -s -p "Password: " PASSWORD
+declare -r PASSWORD_QUOTED=$(printf '%q' "$PASSWORD")
+declare -r PASSWORD_QUOTED_TWICE=$(printf '%q' "$PASSWORD_QUOTED")
+cat "$HOME/workspace/dotfiles/nix-darwin-installer.exp" |
+    sed "s/PASSWORD/${PASSWORD_QUOTED_TWICE}/g" |
+    expect
 rm result
