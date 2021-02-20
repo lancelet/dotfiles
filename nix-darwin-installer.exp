@@ -1,4 +1,7 @@
 #!/usr/bin/env expect
+#
+# Timeout
+set timeout 300
 
 # Start the installer
 spawn ./result/bin/darwin-installer
