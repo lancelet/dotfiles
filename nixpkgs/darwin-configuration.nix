@@ -35,11 +35,10 @@
         ghc
         git
         gnupg
-        iterm2
         neovim
         niv
         ripgrep
-        texlive.combined.scheme-full
+        # texlive.combined.scheme-full
         tmux
         vim
         zsh-powerlevel10k
