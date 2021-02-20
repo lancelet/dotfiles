@@ -3,19 +3,23 @@
 # Start the installer
 spawn ./result/bin/darwin-installer
 
-expect "Would you like to edit the default configuration.nix before starting? [y/n]" {
+expect "Would you like to edit the default configuration.nix before starting? \\\[y/n\\\]" {
     send "n\n"
 }
 
-expect "Would you like to load darwin configuration in /etc/bashrc? [y/n]" {
+expect "Would you like to manage <darwin> with nix-channel? \\\[y/n\\\]" {
     send "y\n"
 }
 
-expect "Would you like to load darwin configuration in /etc/zshrc? [y/n]" {
+expect "Would you like to load darwin configuration in /etc/bashrc? \\\[y/n\\\]" {
     send "y\n"
 }
 
-expect "Would you like to create /run? [y/n]" {
+expect "Would you like to load darwin configuration in /etc/zshrc? \\\[y/n\\\]" {
+    send "y\n"
+}
+
+expect "Would you like to create /run? \\\[y/n\\\]" {
     send "y\n"
 }
 
