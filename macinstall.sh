@@ -12,7 +12,7 @@ readonly NC='\033[0m' # no color
 # Print a log message, in green.
 log () {
     declare -r message="$1"
-    echo "${GREEN}MACINSTALL: ${message}${NC}"
+    printf "${GREEN}MACINSTALL: ${message}${NC}\n"
 }
 
 log 'dotfiles installation commencing...'
