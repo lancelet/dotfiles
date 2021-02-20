@@ -17,6 +17,11 @@ log () {
 
 log 'dotfiles installation commencing...'
 
+read -s -p "Password: " PASSWORD
+declare -r PASSWORD_QUOTED=$(printf '%q' "$PASSWORD")
+declare -r PASSWORD_QUOTED_TWICE=$(printf '%q' "$PASSWORD_QUOTED")
+log 'received password'
+
 log 'installing iTerm2'
 mkdir -p ~/Applications
 pushd ~/Applications
@@ -32,7 +37,34 @@ sh <(curl -L https://nixos.org/nix/install) \
 # shellcheck disable=SC1090
 source "$HOME/.nix-profile/etc/profile.d/nix.sh"
 
+log 'installing nix-darwin (using minimal darwin-configuration.nix)'
+mkdir -p "$HOME/.nixpkgs"
+cat <<EOF >"$HOME/.nixpkgs/darwin-configuration.nix"
+{ config, pkgs, lib, ... }:
+{
+  imports = [ <home-manager/nix-darwin> ];
+
+  system.stateVersion = 4;
+  home-manager.users.jsm = { pkgs, ... }: {
+    home.packages =
+      with pkgs;
+      [
+        git
+      ];
+}
+EOF
+nix-channel --add \
+    https://github.com/nix-community/home-manager/archive/master.tar.gz \
+    home-manager
+nix-channel --update
+nix-build https://github.com/LnL7/nix-darwin/archive/master.tar.gz -A installer
+cat "$HOME/workspace/dotfiles/nix-darwin-installer.exp" |
+    sed "s/PASSWORD/${PASSWORD_QUOTED_TWICE}/g" |
+    expect
+rm result
+
 log 'checking out repo'
+rm -rf "$HOME/.nixpkgs"
 mkdir -p ~/workspace
 pushd ~/workspace
 nix-shell \
@@ -43,17 +75,3 @@ popd
 
 log 'linking ~/.nixpkgs -> ~/workspace/nixpkgs'
 ln -s "$HOME/workspace/dotfiles/nixpkgs" "$HOME/.nixpkgs"
-
-log 'installing nix-darwin'
-nix-channel --add \
-    https://github.com/nix-community/home-manager/archive/master.tar.gz \
-    home-manager
-nix-channel --update
-nix-build https://github.com/LnL7/nix-darwin/archive/master.tar.gz -A installer
-read -s -p "Password: " PASSWORD
-declare -r PASSWORD_QUOTED=$(printf '%q' "$PASSWORD")
-declare -r PASSWORD_QUOTED_TWICE=$(printf '%q' "$PASSWORD_QUOTED")
-cat "$HOME/workspace/dotfiles/nix-darwin-installer.exp" |
-    sed "s/PASSWORD/${PASSWORD_QUOTED_TWICE}/g" |
-    expect
-rm result
