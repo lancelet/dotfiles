@@ -43,6 +43,11 @@
         vim
         zsh-powerlevel10k
       ];
+    programs.fzf.enable = true;
+    programs.zsh = {
+      enable = true;
+      enableCompletion = true;
+    };
   };
 
 }
