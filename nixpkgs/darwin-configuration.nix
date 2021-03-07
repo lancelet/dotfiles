@@ -17,13 +17,13 @@
     enableFzfHistory = true;
   };
 
-  users.users.jsm = {
-    home = "/Users/jsm";
+  users.users.jmerritt = {
+    home = "/Users/jmerritt";
     description = "Jonathan Merritt";
   };
 
   home-manager.useGlobalPkgs = true;
-  home-manager.users.jsm = { pkgs, ... }: {
+  home-manager.users.jmerritt = { pkgs, ... }: {
     home.packages =
       with pkgs;
       [
