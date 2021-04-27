@@ -59,6 +59,15 @@
           file = "p10k.zsh";
         }
       ];
+      initExtra = ''
+        alias ls='ls -G'
+        export EDITOR='nvim'
+
+        if [ -d '/usr/local/share/android-sdk' ]
+        then
+          export ANDROID_SDK_ROOT=/usr/local/share/android-sdk
+        fi
+      '';
     };
   };
 
