@@ -38,6 +38,7 @@
         ghc
         git
         git-lfs
+        glances
         gnupg
         neovim
         niv
