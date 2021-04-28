@@ -29,7 +29,9 @@
       [
         alacritty
         bat
+        bloop
         cabal-install
+        coursier
         emacs
         emacs-all-the-icons-fonts
         fd
