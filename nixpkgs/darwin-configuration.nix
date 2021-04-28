@@ -42,6 +42,7 @@
         ripgrep
         # texlive.combined.scheme-full
         tmux
+        tree
         vim
         zsh-powerlevel10k
       ];
