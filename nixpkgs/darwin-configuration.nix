@@ -28,12 +28,14 @@
       with pkgs;
       [
         alacritty
+        bat
         cabal-install
         emacs
         emacs-all-the-icons-fonts
         fd
         ghc
         git
+        git-lfs
         gnupg
         neovim
         niv
