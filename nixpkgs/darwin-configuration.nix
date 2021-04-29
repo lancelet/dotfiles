@@ -4,11 +4,12 @@
 
   system.stateVersion = 4;
 
-  environment.systemPackages =
-    with pkgs;
-    [
-      emacs
-    ];
+  nixpkgs.overlays = [
+    (import
+        (builtins.fetchTarball {
+          url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
+        }))
+  ];
 
   programs.zsh = {
     enable = true;
@@ -32,7 +33,6 @@
         bloop
         cabal-install
         coursier
-        emacs
         emacs-all-the-icons-fonts
         fd
         ghc
@@ -47,8 +47,15 @@
         tmux
         tree
         vim
+        zenith
         zsh-powerlevel10k
       ];
+
+    programs.emacs = {
+      enable = true;
+      package = pkgs.emacsGit.override { nativeComp = true; };
+      extraPackages = epkgs: [ epkgs.vterm ];
+    };
     programs.fzf.enable = true;
     programs.zsh = {
       enable = true;
