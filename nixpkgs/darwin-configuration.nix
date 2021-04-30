@@ -30,6 +30,8 @@ in
       ./programs/fzf.nix
       ./programs/zsh.nix
     ];
+    home.file.".spacemacs".source = ./spacemacs.el;
   };
+
 
 }
