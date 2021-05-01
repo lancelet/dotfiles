@@ -9,4 +9,5 @@
       vterm
     ];
   };
+  home.file.".spacemacs".source = ./spacemacs.el;
 }

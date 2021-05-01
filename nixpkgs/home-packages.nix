@@ -18,6 +18,7 @@
       neovim
       niv
       ripgrep
+      source-code-pro
       # texlive.combined.scheme-full
       tmux
       tree
