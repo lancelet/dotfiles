@@ -13,7 +13,7 @@ in
         (builtins.fetchGit {
           url = "git@github.com:nix-community/emacs-overlay.git";
           ref = "master";
-          rev = "365ad520a5d3ca88d48d0494fa8ba6a7f74c10bf";
+          rev = "f5d26cf242c781bdd7bee13cce05a09c7db71c98";
         }))
   ];
 
