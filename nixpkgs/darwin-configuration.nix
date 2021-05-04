@@ -17,6 +17,15 @@ in
         }))
   ];
 
+  # This has to be here (for nix-darwin), otherwise zsh
+  # misses path elements, etc.
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    enableFzfCompletion = true;
+    enableFzfHistory = true;
+  };
+
   users.users.${user} = {
     home = "/Users/${user}";
     description = "Jonathan Merritt";
