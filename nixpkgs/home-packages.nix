@@ -9,6 +9,7 @@
       cabal-install
       coursier
       emacs-all-the-icons-fonts
+      emacsMacport
       fd
       ghc
       git
@@ -18,7 +19,7 @@
       neovim
       niv
       ripgrep
-      source-code-pro
+      # source-code-pro  # alacritty font bug
       # texlive.combined.scheme-full
       tmux
       tree

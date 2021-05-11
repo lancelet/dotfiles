@@ -22,6 +22,9 @@
       then
         export ANDROID_SDK_ROOT=/usr/local/share/android-sdk
       fi
+
+      # Alias emacsMacport (emacs-mac) GUI application
+      alias emacs="$(dirname $(readlink $(readlink $(which emacs))))/../Applications/Emacs.app/Contents/MacOS/Emacs"
     '';
   };
 }

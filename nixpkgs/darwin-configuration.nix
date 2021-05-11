@@ -7,15 +7,15 @@ in
 
   system.stateVersion = 4;
 
-  nixpkgs.overlays =
-    [
-      (import
-        (builtins.fetchGit {
-          url = "git@github.com:nix-community/emacs-overlay.git";
-          ref = "master";
-          rev = "f5d26cf242c781bdd7bee13cce05a09c7db71c98";
-        }))
-  ];
+  # nixpkgs.overlays =
+  #   [
+  #     (import
+  #       (builtins.fetchGit {
+  #         url = "git@github.com:nix-community/emacs-overlay.git";
+  #         ref = "master";
+	#   rev = "964f93d602b1b484a51bfeeda4e8aa510acde1cb";
+  #       }))
+  # ];
 
   # This has to be here (for nix-darwin), otherwise zsh
   # misses path elements, etc.
@@ -35,6 +35,7 @@ in
   home-manager.users.${user} = { pkgs, ... }: {
     imports = [
       ./home-packages.nix
+      ./programs/alacritty-config.nix
       ./programs/emacs.nix
       ./programs/fzf.nix
       ./programs/zsh.nix

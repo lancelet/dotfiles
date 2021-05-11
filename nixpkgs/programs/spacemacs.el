@@ -40,13 +40,16 @@ This function should only modify configuration layer settings."
      ;; ----------------------------------------------------------------
      ;; auto-completion
      better-defaults
+     bibtex
      emacs-lisp
      git
      groovy
      haskell
      helm
      html
-     lsp
+     (lsp :variables
+          lsp-headerline-breadcrumb-enable nil
+          lsp-ui-doc-enable nil)
      markdown
      multiple-cursors
      nixos
@@ -57,6 +60,7 @@ This function should only modify configuration layer settings."
             shell-default-shell 'vterm)
      ;; spell-checking
      scala
+     slack
      syntax-checking
      ;; version-control
      themes-megapack
@@ -235,7 +239,7 @@ It should only modify the values of Spacemacs settings."
    ;; refer to the DOCUMENTATION.org for more info on how to create your own
    ;; spaceline theme. Value can be a symbol or list with additional properties.
    ;; (default '(spacemacs :separator wave :separator-scale 1.5))
-   dotspacemacs-mode-line-theme '(all-the-icons :separator none :separator-scale 1.5)
+   dotspacemacs-mode-line-theme '(doom)
 
    ;; If non-nil the cursor color matches the state color in GUI Emacs.
    ;; (default t)
@@ -537,6 +541,12 @@ before packages are loaded."
               (custom-set-variables
                '(markdown-header-scaling nil)
                '(markdown-header-scaling-values '(1.0 1.0 1.0 1.0 1.0 1.0)))))
+
+  (let ((personal-settings "~/slack.el"))
+    (when (file-exists-p personal-settings)
+      (load-file personal-settings))
+    )
+
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
