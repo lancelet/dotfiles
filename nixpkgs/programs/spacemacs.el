@@ -548,6 +548,9 @@ before packages are loaded."
       (load-file personal-settings))
     )
 
+  ;; Turn off file watching for LSP; Scala/Metals keeps complaining
+  (setq lsp-enable-file-watchers nil)
+
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
