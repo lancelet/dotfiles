@@ -54,6 +54,7 @@ This function should only modify configuration layer settings."
      multiple-cursors
      nixos
      org
+     osx
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom
