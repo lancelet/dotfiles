@@ -1,5 +1,15 @@
 # dotfiles
 
+## Installing emacs
+
+```sh
+brew tap d12frosted/emacs-plus
+brew install emacs-plus@28 --with-native-comp
+```
+
+
+## Out-of-date...
+
 Install on a Mac:
 
 ``` sh

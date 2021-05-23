@@ -9,7 +9,7 @@
       cabal-install
       coursier
       emacs-all-the-icons-fonts
-      emacsMacport
+      # emacsMacport
       fd
       ghc
       git
