@@ -543,11 +543,6 @@ before packages are loaded."
                '(markdown-header-scaling nil)
                '(markdown-header-scaling-values '(1.0 1.0 1.0 1.0 1.0 1.0)))))
 
-  (let ((personal-settings "~/slack.el"))
-    (when (file-exists-p personal-settings)
-      (load-file personal-settings))
-    )
-
   ;; Turn off file watching for LSP; Scala/Metals keeps complaining
   (setq lsp-enable-file-watchers nil)
 
