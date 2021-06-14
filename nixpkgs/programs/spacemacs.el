@@ -61,10 +61,8 @@ This function should only modify configuration layer settings."
             shell-default-shell 'vterm)
      ;; spell-checking
      scala
-     slack
      syntax-checking
      ;; version-control
-     themes-megapack
      treemacs
      vinegar
      yaml)
