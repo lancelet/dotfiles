@@ -1,5 +1,7 @@
 # dotfiles
 
+- Install [doom emacs](https://github.com/hlissner/doom-emacs).
+
 ## Installing emacs
 
 ```sh
