@@ -55,3 +55,14 @@
 ;; they are implemented.
 (after! scala-mode
   (setq scala-indent:use-javadoc-style nil))
+
+;; Custom Keybindings
+
+(map! :leader
+      :desc "Treemacs"
+      "tt"
+      #'treemacs)
+(map! :leader
+      :dest "Treemacs"
+      "wz"
+      #'treemacs-select-window)
