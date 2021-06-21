@@ -63,6 +63,6 @@
       "tt"
       #'treemacs)
 (map! :leader
-      :dest "Treemacs"
+      :desc "Treemacs"
       "wz"
       #'treemacs-select-window)
