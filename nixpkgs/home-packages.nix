@@ -20,7 +20,7 @@
       niv
       ripgrep
       # source-code-pro  # alacritty font bug
-      # texlive.combined.scheme-full
+      texlive.combined.scheme-full
       tmux
       tree
       vim
