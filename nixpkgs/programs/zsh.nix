@@ -29,6 +29,12 @@
         source "$HOME/.ghcup/env"
       fi
 
+      # Add rustup environment if it exists
+      if [ -f "$HOME/.cargo/env" ]
+      then
+        source "$HOME/.cargo/env"
+      fi
+
       # Alias emacsMacport (emacs-mac) GUI application
       # alias emacs="$(dirname $(readlink $(readlink $(which emacs))))/../Applications/Emacs.app/Contents/MacOS/Emacs"
     '';
