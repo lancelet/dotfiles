@@ -35,6 +35,14 @@
         source "$HOME/.cargo/env"
       fi
 
+      # Functions to enable/disable gradle parallel
+      function pardis {
+        sed -i.bak 's/org.gradle.parallel=true/org.gradle.parallel=false/g' gradle.properties
+      }
+      function paren {
+        sed -i.bak 's/org.gradle.parallel=false/org.gradle.parallel=true/g' gradle.properties
+      }
+
       # Alias emacsMacport (emacs-mac) GUI application
       # alias emacs="$(dirname $(readlink $(readlink $(which emacs))))/../Applications/Emacs.app/Contents/MacOS/Emacs"
     '';
