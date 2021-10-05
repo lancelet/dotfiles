@@ -57,6 +57,11 @@
   (setq lsp-enable-file-watchers nil)
   (setq scala-indent:use-javadoc-style nil))
 
+;; Disable lsp-ui-doc
+;;  See: https://emacs-lsp.github.io/lsp-mode/tutorials/how-to-turn-off/
+(after! lsp-ui
+  (setq lsp-ui-doc-enable nil))
+
 ;; Custom Keybindings
 
 (map! :leader
