@@ -49,7 +49,7 @@
        vc-gutter         ; vcs diff in the fringe
        vi-tilde-fringe   ; fringe tildes to mark beyond EOB
        (window-select +numbers)     ; visually switch windows
-       workspaces        ; tab emulation, persistence & separate workspaces
+       ;;workspaces        ; tab emulation, persistence & separate workspaces
        ;;zen               ; distraction-free coding or writing
 
        :editor
@@ -63,7 +63,7 @@
        ;;objed             ; text object editing for the innocent
        ;;parinfer          ; turn lisp into python, sort of
        ;;rotate-text       ; cycle region at point between text candidates
-       snippets          ; my elves. They type so I don't have to
+       ;;snippets          ; my elves. They type so I don't have to
        ;;word-wrap         ; soft wrapping with language-aware indent
 
        :emacs
@@ -113,7 +113,7 @@
        :lang
        ;;agda              ; types of types of types of types...
        ;;beancount         ; mind the GAAP
-       ;;cc                ; C > C++ == 1
+       cc                ; C > C++ == 1
        ;;clojure           ; java with a lisp
        ;;common-lisp       ; if you've seen one lisp, you've seen them all
        ;;coq               ; proofs-as-programs
@@ -135,8 +135,8 @@
        (haskell +lsp)  ; a language that's lazier than I am
        ;;hy                ; readability of scheme w/ speed of python
        ;;idris             ; a language you can depend on
-       ;;json              ; At least it ain't XML
-       ;;(java +meghanada) ; the poster child for carpal tunnel syndrome
+       json              ; At least it ain't XML
+       (java +meghanada) ; the poster child for carpal tunnel syndrome
        ;;javascript        ; all(hope(abandon(ye(who(enter(here))))))
        ;;julia             ; a better, faster MATLAB
        ;;kotlin            ; a better, slicker Java(Script)
@@ -159,7 +159,7 @@
        ;;rest              ; Emacs as a REST client
        ;;rst               ; ReST in peace
        ;;(ruby +rails)     ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
-       ;;rust              ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
+       rust              ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
        (scala +lsp)            ; java, but good
        ;;(scheme +guile)   ; a fully conniving family of lisps
        sh                ; she sells {ba,z,fi}sh shells on the C xor
@@ -168,7 +168,7 @@
        ;;swift             ; who asked for emoji variables?
        ;;terra             ; Earth and Moon in alignment for performance.
        ;;web               ; the tubes
-       ;;yaml              ; JSON, but readable
+       yaml              ; JSON, but readable
        ;;zig               ; C, but simpler
 
        :email
@@ -179,7 +179,7 @@
        :app
        ;;calendar
        ;;emms
-       ;;everywhere        ; *leave* Emacs!? You must be joking
+       everywhere        ; *leave* Emacs!? You must be joking
        ;;irc               ; how neckbeards socialize
        ;;(rss +org)        ; emacs as an RSS reader
        ;;twitter           ; twitter client https://twitter.com/vnought
