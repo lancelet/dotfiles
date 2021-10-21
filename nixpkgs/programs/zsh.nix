@@ -21,6 +21,7 @@
       if [ -d '/usr/local/share/android-sdk' ]
       then
         export ANDROID_SDK_ROOT=/usr/local/share/android-sdk
+        export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
       fi
 
       # Add ghcup environment if it exists
