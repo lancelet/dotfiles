@@ -65,14 +65,16 @@
 
 ;; Custom Keybindings
 
-(map! :leader
-      :desc "Treemacs"
-      "tt"
-      #'treemacs)
+;; treemacs now has a doom keybinding: SPC o p
+;; (map! :leader
+;;       :desc "Treemacs"
+;;       "tt"
+;;       #'treemacs)
 (map! :leader
       :desc "Treemacs"
       "wz"
       #'treemacs-select-window)
+(setq treemacs-width 55)
 
 (after! company
   (setq company-idle-delay 0.5
