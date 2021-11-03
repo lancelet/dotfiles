@@ -16,6 +16,7 @@
       git-lfs
       glances
       gnupg
+      jq
       jql
       neovim
       niv
