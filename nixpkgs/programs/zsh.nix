@@ -36,6 +36,12 @@
         source "$HOME/.cargo/env"
       fi
 
+      # Add /opt/homebrew/bin to the path if it exists
+      if [ -d "/opt/homebrew/bin" ]
+      then
+        export PATH=/opt/homebrew/bin:$PATH
+      fi
+
       # Functions to enable/disable gradle parallel
       function pardis {
         sed -i.bak 's/org.gradle.parallel=true/org.gradle.parallel=false/g' gradle.properties

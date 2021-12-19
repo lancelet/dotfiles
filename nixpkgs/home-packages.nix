@@ -5,7 +5,7 @@
     [
       alacritty
       bat
-      bloop
+      # bloop
       cabal-install
       coursier
       emacs-all-the-icons-fonts
@@ -18,15 +18,16 @@
       gnupg
       jq
       jql
+      llvmPackages_12.llvm
       neovim
-      niv
+      # niv
       ripgrep
       # source-code-pro  # alacritty font bug
       texlive.combined.scheme-full
       tmux
       tree
       vim
-      zenith
+      # zenith
       zsh-powerlevel10k
     ];
 }

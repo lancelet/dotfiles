@@ -7,6 +7,8 @@ in
 
   system.stateVersion = 4;
 
+  services.nix-daemon.enable = true;
+
   # nixpkgs.overlays =
   #   [
   #     (import

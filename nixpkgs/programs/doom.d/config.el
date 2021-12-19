@@ -58,6 +58,12 @@
   (setq lsp-enable-file-watchers nil)
   (setq scala-indent:use-javadoc-style nil))
 
+;; See: https://github.com/hlissner/doom-emacs/issues/5904
+;;
+;; This is required because lsp is unpinned in packages.el
+(after! lsp-mode
+  (advice-remove #'lsp #'+lsp-dont-prompt-to-install-servers-maybe-a))
+
 ;; Disable lsp-ui-doc
 ;;  See: https://emacs-lsp.github.io/lsp-mode/tutorials/how-to-turn-off/
 (after! lsp-ui
