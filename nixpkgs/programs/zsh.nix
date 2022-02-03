@@ -42,12 +42,13 @@
         export PATH=/opt/homebrew/bin:$PATH
       fi
 
-      # Functions to enable/disable gradle parallel
-      function pardis {
-        sed -i.bak 's/org.gradle.parallel=true/org.gradle.parallel=false/g' gradle.properties
+      # Functions to enable/disable Sophos
+      function sophosoff {
+        sudo mv /Library/SystemExtensions/6A2CBFCC-6183-4815-B7C0-C995FDA8639B/com.sophos.endpoint.scanextension.systemextension/Contents/MacOS/com.sophos.endpoint.scanextension /Library/SystemExtensions/6A2CBFCC-6183-4815-B7C0-C995FDA8639B/com.sophos.endpoint.scanextension.systemextension/Contents/MacOS/com.sophos.endpoint.scanextension.backup
+        sudo pkill com.sophos.endpoint.scanextension
       }
-      function paren {
-        sed -i.bak 's/org.gradle.parallel=false/org.gradle.parallel=true/g' gradle.properties
+      function sophoson {
+        sudo cp /Library/SystemExtensions/6A2CBFCC-6183-4815-B7C0-C995FDA8639B/com.sophos.endpoint.scanextension.systemextension/Contents/MacOS/com.sophos.endpoint.scanextension.backup /Library/SystemExtensions/6A2CBFCC-6183-4815-B7C0-C995FDA8639B/com.sophos.endpoint.scanextension.systemextension/Contents/MacOS/com.sophos.endpoint.scanextension
       }
 
       # Alias emacsMacport (emacs-mac) GUI application
