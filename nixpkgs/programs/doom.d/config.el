@@ -89,4 +89,5 @@
         company-minimum-prefix-length 2))
 
 (after! tex
-  (setq font-latex-fontify-sectioning 1.0))
+  (setq font-latex-fontify-sectioning 1.0)
+  (setq font-latex-fontify-script nil))
