@@ -14,7 +14,7 @@
       ghc
       git
       git-lfs
-      glances
+      # glances
       gnupg
       jq
       jql
