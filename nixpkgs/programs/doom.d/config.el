@@ -78,4 +78,5 @@
 ;; they are implemented.
 
 (after! scala-mode
-  (setq scala-indent:use-javadoc-style nil))
+  (setq scala-indent:use-javadoc-style nil)
+  (setq lsp-enable-file-watchers nil))
