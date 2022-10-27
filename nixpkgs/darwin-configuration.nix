@@ -35,6 +35,7 @@ in
 
   home-manager.useGlobalPkgs = true;
   home-manager.users.${user} = { pkgs, ... }: {
+    home.stateVersion = "22.05";
     imports = [
       ./home-packages.nix
       ./programs/alacritty-config.nix
@@ -43,6 +44,5 @@ in
       ./programs/zsh.nix
     ];
   };
-
 
 }
