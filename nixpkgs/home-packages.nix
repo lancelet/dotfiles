@@ -22,6 +22,7 @@
       neovim
       # niv
       ripgrep
+      sqlite  # for emacs roam2
       # source-code-pro  # alacritty font bug
       texlive.combined.scheme-full
       tmux

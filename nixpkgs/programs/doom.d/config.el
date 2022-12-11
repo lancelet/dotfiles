@@ -80,3 +80,5 @@
 (after! scala-mode
   (setq scala-indent:use-javadoc-style nil)
   (setq lsp-enable-file-watchers nil))
+
+(setq org-roam-directory "~/workspace/zettel")
