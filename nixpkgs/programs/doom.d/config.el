@@ -81,4 +81,7 @@
   (setq scala-indent:use-javadoc-style nil)
   (setq lsp-enable-file-watchers nil))
 
+(after! typescript-mode
+  (setq typescript-indent-level 2))
+
 (setq org-roam-directory "~/workspace/zettel")
