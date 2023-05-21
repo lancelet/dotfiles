@@ -50,3 +50,7 @@
 ;(unpin! t)
 
 (package! ef-themes)
+
+(unpin! lsp-mode)
+(unpin! lsp-ui)
+(unpin! lsp-metals)

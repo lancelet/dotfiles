@@ -85,3 +85,9 @@
   (setq typescript-indent-level 2))
 
 (setq org-roam-directory "~/workspace/zettel")
+
+;; jmerritt: Align after colon.
+(defun align-after-colon (BEG END)
+  "Align by adding a space after a colon in BEG END."
+  (interactive "r")
+  (align-regexp BEG END "\\(\\s-*:\\)\\ " 1 1 t))
