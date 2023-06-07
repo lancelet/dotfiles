@@ -91,3 +91,7 @@
   "Align by adding a space after a colon in BEG END."
   (interactive "r")
   (align-regexp BEG END "\\(\\s-*:\\)\\ " 1 1 t))
+
+;; jmerritt: Add homebrew emacs packages.
+(add-to-list 'load-path "/opt/homebrew/share/emacs/site-lisp")
+(load "lilypond-init.el")
