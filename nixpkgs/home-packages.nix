@@ -23,12 +23,13 @@
       # niv
       ripgrep
       sqlite  # for emacs roam2
+      starship
       # source-code-pro  # alacritty font bug
       texlive.combined.scheme-full
       tmux
       tree
       vim
       # zenith
-      zsh-powerlevel10k
+      # zsh-powerlevel10k
     ];
 }

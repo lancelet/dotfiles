@@ -9,16 +9,6 @@ in
 
   services.nix-daemon.enable = true;
 
-  # nixpkgs.overlays =
-  #   [
-  #     (import
-  #       (builtins.fetchGit {
-  #         url = "git@github.com:nix-community/emacs-overlay.git";
-  #         ref = "master";
-	#   rev = "964f93d602b1b484a51bfeeda4e8aa510acde1cb";
-  #       }))
-  # ];
-
   # This has to be here (for nix-darwin), otherwise zsh
   # misses path elements, etc.
   programs.zsh = {
@@ -35,14 +25,17 @@ in
 
   home-manager.useGlobalPkgs = true;
   home-manager.users.${user} = { pkgs, ... }: {
-    home.stateVersion = "22.05";
+    home.stateVersion = "24.05";
     imports = [
       ./home-packages.nix
       ./programs/alacritty-config.nix
       ./programs/emacs.nix
       ./programs/fzf.nix
+      ./programs/starship.nix
       ./programs/zsh.nix
     ];
   };
+
+  environment.pathsToLink = ["/usr/share/zsh"];
 
 }
