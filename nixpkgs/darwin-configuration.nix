@@ -29,6 +29,7 @@ in
     imports = [
       ./home-packages.nix
       ./programs/alacritty-config.nix
+      ./programs/atuin.nix
       ./programs/emacs.nix
       ./programs/fzf.nix
       ./programs/starship.nix
