@@ -48,5 +48,13 @@
       # Alias emacsMacport (emacs-mac) GUI application
       # alias emacs="$(dirname $(readlink $(readlink $(which emacs))))/../Applications/Emacs.app/Contents/MacOS/Emacs"
     '';
+    history = {
+      extended = true;
+      save = 100000000;
+    };
+    # Prezto is a fork of oh-my-zsh
+    prezto = {
+      enable = true;
+    };
   };
 }
