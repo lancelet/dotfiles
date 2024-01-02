@@ -37,6 +37,13 @@
         source $HOME/anaconda3/etc/profile.d/conda.sh
       fi
 
+      # Add ~/.local/bin to the path, if it exists.
+      # This is where lunarvim (lvim) sits.
+      if [ -d "$HOME/.local/bin" ]
+      then
+        export PATH="$HOME/.local/bin:$PATH"
+      fi
+
       # Functions to enable/disable Sophos
       function sophosoff {
         sudo mv /Library/SystemExtensions/6A2CBFCC-6183-4815-B7C0-C995FDA8639B/com.sophos.endpoint.scanextension.systemextension/Contents/MacOS/com.sophos.endpoint.scanextension /Library/SystemExtensions/6A2CBFCC-6183-4815-B7C0-C995FDA8639B/com.sophos.endpoint.scanextension.systemextension/Contents/MacOS/com.sophos.endpoint.scanextension.backup
