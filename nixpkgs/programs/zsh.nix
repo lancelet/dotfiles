@@ -5,6 +5,7 @@
     initExtra = ''
       alias ls='ls -G'
       export EDITOR='nvim'
+      export VISUAL='nvim'
 
       if [ -d '/usr/local/share/android-sdk' ]
       then
