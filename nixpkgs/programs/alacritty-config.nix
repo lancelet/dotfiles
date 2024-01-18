@@ -1,4 +1,4 @@
 { config, lib, pkgs, ... }:
 {
-  home.file.".alacritty.yml".source = ./alacritty.yml;
+  home.file.".alacritty.toml".source = ./alacritty.toml;
 }
