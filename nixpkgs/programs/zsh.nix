@@ -7,9 +7,11 @@
       export EDITOR='nvim'
       export VISUAL='nvim'
 
-      if [ -d '/usr/local/share/android-sdk' ]
+      ANDROID_LOC="$HOME/Library/Android/sdk"
+      if [ -d "$ANDROID_LOC" ]
       then
-        export ANDROID_SDK_ROOT=/usr/local/share/android-sdk
+        export ANDROID_SDK_ROOT="$ANDROID_LOC"
+        export ANDROID_HOME="$ANDROID_SDK_ROOT"
         export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
       fi
 
