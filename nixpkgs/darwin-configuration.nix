@@ -32,6 +32,7 @@ in
       ./programs/atuin.nix
       ./programs/emacs.nix
       ./programs/fzf.nix
+      ./programs/nvchad_custom.nix
       ./programs/starship.nix
       ./programs/zsh.nix
     ];
