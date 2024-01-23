@@ -28,22 +28,15 @@
       fi
 
       # Add /opt/homebrew/bin to the path if it exists
-      if [ -d "/opt/homebrew/bin" ]
-      then
-        export PATH=/opt/homebrew/bin:$PATH
-      fi
+      # if [ -d "/opt/homebrew/bin" ]
+      # then
+      #   export PATH=/opt/homebrew/bin:$PATH
+      # fi
 
       # Set up conda, if it exists
       if [ -d "$HOME/anaconda3" ]
       then
         source $HOME/anaconda3/etc/profile.d/conda.sh
-      fi
-
-      # Add ~/.local/bin to the path, if it exists.
-      # This is where lunarvim (lvim) sits.
-      if [ -d "$HOME/.local/bin" ]
-      then
-        export PATH="$HOME/.local/bin:$PATH"
       fi
 
       # Functions to enable/disable Sophos
