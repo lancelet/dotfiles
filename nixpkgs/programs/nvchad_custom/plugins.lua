@@ -42,7 +42,7 @@ local plugins = {
       ensure_installed = {
         "black",           -- Python code formatter
         "html-lsp",        -- HTML LSP plugin
-        "mypy",            -- mypy type checker
+        -- "mypy",            -- mypy type checker (install in env instead)
         "pyright",         -- Python LSP plugin
         "ruff",            -- Python linter and code formatter
         "rust-analyzer",   -- Rust LSP plugin
