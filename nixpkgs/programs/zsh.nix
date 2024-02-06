@@ -3,7 +3,10 @@
   programs.zsh = {
     enable = true;
     initExtra = ''
-      alias ls='ls -G'
+      setopt rmstarsilent
+      alias ls='exa'
+      alias ll='exa -l'
+      alias lt='ext -lT'
       export EDITOR='nvim'
       export VISUAL='nvim'
 
@@ -58,6 +61,7 @@
     # Prezto is a fork of oh-my-zsh
     prezto = {
       enable = true;
+      utility.safeOps = false;
     };
   };
 }
