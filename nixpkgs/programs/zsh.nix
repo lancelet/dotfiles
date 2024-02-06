@@ -6,7 +6,7 @@
       setopt rmstarsilent
       alias ls='exa'
       alias ll='exa -l'
-      alias lt='ext -lT'
+      alias lt='exa -lT'
       export EDITOR='nvim'
       export VISUAL='nvim'
 
