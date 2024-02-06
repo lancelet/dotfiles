@@ -37,6 +37,15 @@ local plugins = {
     }
   },
   {
+    "nvim-tree/nvim-tree.lua",
+    config = function()
+      M = require "plugins.configs.nvimtree"
+      M.view.adaptive_size = false
+      M.view.width = 60
+      require("nvim-tree").setup(M)
+    end
+  },
+  {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
