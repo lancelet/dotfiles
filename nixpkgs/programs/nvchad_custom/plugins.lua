@@ -37,12 +37,21 @@ local plugins = {
     }
   },
   {
+    "nvim-tree/nvim-tree.lua",
+    config = function()
+      M = require "plugins.configs.nvimtree"
+      M.view.adaptive_size = false
+      M.view.width = 60
+      require("nvim-tree").setup(M)
+    end
+  },
+  {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
         "black",           -- Python code formatter
         "html-lsp",        -- HTML LSP plugin
-        "mypy",            -- mypy type checker
+        -- "mypy",            -- mypy type checker (install in env instead)
         "pyright",         -- Python LSP plugin
         "ruff",            -- Python linter and code formatter
         "rust-analyzer",   -- Rust LSP plugin

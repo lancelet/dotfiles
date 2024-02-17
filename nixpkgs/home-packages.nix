@@ -8,6 +8,7 @@
       cabal-install
       coursier
       emacs-all-the-icons-fonts
+      eza
       fd
       ghc
       git
