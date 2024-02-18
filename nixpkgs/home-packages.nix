@@ -14,6 +14,7 @@
       git
       git-lfs
       gnupg
+      helix
       jq
       jql
       llvmPackages_12.llvm
