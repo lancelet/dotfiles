@@ -7,8 +7,8 @@
       alias ls='exa'
       alias ll='exa -l'
       alias lt='exa -lT'
-      export EDITOR='nvim'
-      export VISUAL='nvim'
+      export EDITOR='hx'
+      export VISUAL='hx'
 
       ANDROID_LOC="$HOME/Library/Android/sdk"
       if [ -d "$ANDROID_LOC" ]
@@ -35,6 +35,12 @@
       # then
       #   export PATH=/opt/homebrew/bin:$PATH
       # fi
+
+      # Add ~/workspace/bits to the path if that directory exists.
+      if [ -d "$HOME/workspace/bits" ]
+      then
+        export PATH="$HOME/workspace/bits:$PATH"
+      fi
 
       # Set up conda, if it exists
       if [ -d "$HOME/anaconda3" ]

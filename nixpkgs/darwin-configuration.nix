@@ -35,6 +35,7 @@ in
       ./programs/helix-config.nix
       ./programs/nvchad_custom.nix
       ./programs/starship.nix
+      ./programs/zellij-config.nix
       ./programs/zsh.nix
     ];
   };

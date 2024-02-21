@@ -19,6 +19,7 @@
       jql
       llvmPackages_12.llvm
       neovim
+      nnn
       ripgrep
       sqlite
       starship
@@ -26,5 +27,6 @@
       tmux
       tree
       vim
+      zellij
     ];
 }
