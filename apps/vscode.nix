@@ -42,6 +42,7 @@
       "editor.formatOnSave" = true;
       "editor.minimap.enabled" = false;
       "editor.rulers" = [80];
+      "editor.fontFamily" = "MesloLGMDZ Nerd Font Mono";
 
       # Nix
       "nix.enableLanguageServer" = true;
