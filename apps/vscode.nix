@@ -21,7 +21,6 @@
       # Nix
       jnoortheen.nix-ide
       # Rust
-      rust-lang.rust
       rust-lang.rust-analyzer
       # Python
       ms-python.python
