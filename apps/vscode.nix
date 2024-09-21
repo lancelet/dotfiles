@@ -10,6 +10,7 @@
     extensions = with pkgs.open-vsx; [
       # --- General ---
       # Themes
+      arcticicestudio.nord-visual-studio-code
       catppuccin.catppuccin-vsc
       pkief.material-product-icons
       file-icons.file-icons
