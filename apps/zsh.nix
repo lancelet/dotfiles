@@ -13,6 +13,11 @@
       export EDITOR='nvim'
       export VISUAL='nvim'
 
+      # Add the Homebrew path if it is installed
+      if [ -d "/opt/homebrew" ]; then
+        export PATH="/opt/homebrew/bin:$PATH"
+      fi
+
       # Add the cargo path if it is installed
       if [ -d "$HOME/.cargo/bin" ]; then
         export PATH="$HOME/.cargo/bin:$PATH"
