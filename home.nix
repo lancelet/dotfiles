@@ -9,9 +9,11 @@
 
     packages = with pkgs; [
       bat
+      comma
       dejavu_fonts
       direnv
       eza
+      fstar
       git
       jq
       neovim
@@ -20,6 +22,7 @@
       texlive.combined.scheme-full
       tmux
       tree
+      z3
     ];
   };
 

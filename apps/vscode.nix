@@ -18,12 +18,19 @@
       asvetliakov.vscode-neovim
 
       # --- Language Support ---
+      # C/C++
+      llvm-vs-code-extensions.vscode-clangd
+      # Haskell
+      justusadam.language-haskell
+      haskell.haskell
       # Nix
       jnoortheen.nix-ide
       # Rust
       rust-lang.rust-analyzer
       # Python
       ms-python.python
+      # Quarto
+      quarto.quarto
 
       # ---- Extra Features ---
       mkhl.direnv
@@ -43,6 +50,11 @@
       "editor.minimap.enabled" = false;
       "editor.rulers" = [80];
       "editor.fontFamily" = "MesloLGMDZ Nerd Font Mono";
+      "editor.fontSize" = 12;
+      "editor.inlayHints.enabled" = "offUnlessPressed";
+
+      # Haskell
+      "haskell.manageHLS" = "PATH";
 
       # Nix
       "nix.enableLanguageServer" = true;
