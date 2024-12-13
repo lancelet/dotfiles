@@ -29,6 +29,8 @@
       rust-lang.rust-analyzer
       # Python
       ms-python.python
+      # OCAML
+      ocamllabs.ocaml-platform
       # Quarto
       quarto.quarto
 
