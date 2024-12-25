@@ -7,6 +7,9 @@
   home = {
     stateVersion = "23.05";
 
+    # Nerd fonts list
+    # https://github.com/NixOS/nixpkgs/blob/master/pkgs/data/fonts/nerd-fonts/manifests/fonts.json
+
     packages = with pkgs; [
       bat
       comma
@@ -18,6 +21,7 @@
       jq
       neovim
       nerdfonts
+      # nerd-fonts.meslo-lg
       ripgrep
       texlive.combined.scheme-full
       tmux
