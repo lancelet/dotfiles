@@ -36,6 +36,7 @@
 
       # ---- Extra Features ---
       mkhl.direnv
+      stkb.rewrap
     ];
 
     userSettings = {
