@@ -52,8 +52,8 @@
       "editor.formatOnSave" = true;
       "editor.minimap.enabled" = false;
       "editor.rulers" = [80];
-      # "editor.fontFamily" = "MesloLGMDZ Nerd Font Mono";
-      "editor.fontFamily" = "ZedMono Nerd Font Mono";
+      "editor.fontFamily" = "MesloLGMDZ Nerd Font Mono";
+      # "editor.fontFamily" = "ZedMono Nerd Font Mono";
       "editor.fontSize" = 12;
       "editor.inlayHints.enabled" = "offUnlessPressed";
 
