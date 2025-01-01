@@ -30,6 +30,7 @@
       texlive.combined.scheme-full
       tmux
       tree
+      wasm-pack
       z3
     ];
   };
