@@ -37,6 +37,7 @@
       # ---- Extra Features ---
       mkhl.direnv
       stkb.rewrap
+      streetsidesoftware.code-spell-checker
     ];
 
     userSettings = {
@@ -71,6 +72,14 @@
       "extensions.experimental.affinity" = {
         "asvetliakov.vscode-neovim" = 1;
       };
+
+      # CSpell (code-spell-checker)
+      "cSpell.enabled" = true;
+      "cSpell.enabledLanguageIds" = [
+        "html"
+        "latex"
+        "markdown"
+      ];
     };
   };
 }

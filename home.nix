@@ -4,13 +4,16 @@
   lib,
   ...
 }: {
-  home = {
+  home = let
+    aspellWithDicts = pkgs.aspellWithDicts (d: [d.en]);
+  in {
     stateVersion = "23.05";
 
     # Nerd fonts list
     # https://github.com/NixOS/nixpkgs/blob/master/pkgs/data/fonts/nerd-fonts/manifests/fonts.json
 
     packages = with pkgs; [
+      aspellWithDicts
       bat
       comma
       dejavu_fonts
