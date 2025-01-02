@@ -75,11 +75,13 @@
 
       # CSpell (code-spell-checker)
       "cSpell.enabled" = true;
-      "cSpell.enabledLanguageIds" = [
-        "html"
-        "latex"
-        "markdown"
-      ];
+      "cSpell.enabledFileTypes" = {
+        "*" = false;
+        "html" = true;
+        "latex" = true;
+        "markdown" = true;
+        "rust" = false;
+      };
     };
   };
 }
