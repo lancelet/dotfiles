@@ -31,8 +31,8 @@
       ms-python.python
       # OCAML
       ocamllabs.ocaml-platform
-      # Quarto
-      quarto.quarto
+      # WGSL (WebGPU Shading Language)
+      polymeilex.wgsl
 
       # ---- Extra Features ---
       mkhl.direnv
