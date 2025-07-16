@@ -23,9 +23,8 @@
       git
       jq
       neovim
-      nerdfonts
-      # nerd-fonts.meslo-lg
-      # nerd-fonts.zed-mono
+      nerd-fonts.meslo-lg
+      nerd-fonts.zed-mono
       ripgrep
       texlive.combined.scheme-full
       tmux

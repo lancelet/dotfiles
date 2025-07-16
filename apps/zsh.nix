@@ -6,12 +6,17 @@
 }: {
   programs.zsh = {
     enable = true;
-    initExtra = ''
+    initContent = ''
       alias ls='eza'
       alias ll='eza -l'
       alias lt='eza -lT'
       export EDITOR='nvim'
       export VISUAL='nvim'
+
+      # Add $HOME/.local/bin if it exists
+      if [ -d "$HOME/.local/bin" ]; then
+        export PATH="$HOME/.local/bin:$PATH"
+      fi
 
       # Add the Homebrew path if it is installed
       if [ -d "/opt/homebrew" ]; then
@@ -27,6 +32,16 @@
       if [ -d "$HOME/.opam" ]; then
         eval $(opam env)
       fi
+      
+      # Add ghcup binaries if installed
+      if [ -d "$HOME/.ghcup/bin" ]; then
+	export PATH="$PATH:$HOME/.ghcup/bin"
+      fi
+
+      # OpenJDK version
+      if [ -d "/opt/homebrew/opt/openjdk@23/bin" ]; then
+        export PATH="/opt/homebrew/opt/openjdk@23/bin:$PATH"
+      fi 
     '';
   };
 }

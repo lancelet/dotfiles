@@ -4,10 +4,12 @@
     package = pkgs.vscodium;
 
     mutableExtensionsDir = false;
-    enableUpdateCheck = false;
-    enableExtensionUpdateCheck = false;
 
-    extensions = with pkgs.open-vsx; [
+    profiles.default = {
+      enableUpdateCheck = false;
+      enableExtensionUpdateCheck = false;
+
+      extensions = with pkgs.open-vsx; [
       # --- General ---
       # Themes
       arcticicestudio.nord-visual-studio-code
@@ -38,9 +40,9 @@
       mkhl.direnv
       stkb.rewrap
       streetsidesoftware.code-spell-checker
-    ];
+      ];
 
-    userSettings = {
+      userSettings = {
       # Theme
       "workbench.colorTheme" = "Catppuccin Macchiato";
       "workbench.productIconTheme" = "material-product-icons";
@@ -81,6 +83,7 @@
         "latex" = true;
         "markdown" = true;
         "rust" = false;
+      };
       };
     };
   };
