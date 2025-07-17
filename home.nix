@@ -20,8 +20,10 @@
       direnv
       eza
       fstar
+      fswatch
       git
       jq
+      liberation_ttf
       neovim
       nerd-fonts.meslo-lg
       nerd-fonts.zed-mono
