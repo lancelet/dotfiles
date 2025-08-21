@@ -29,7 +29,6 @@
       nerd-fonts.zed-mono
       ripgrep
       texlive.combined.scheme-full
-      tmux
       tree
       wasm-pack
       z3
@@ -40,6 +39,7 @@
     ./apps/atuin.nix
     ./apps/direnv.nix
     ./apps/starship.nix
+    ./apps/tmux.nix
     ./apps/vscode.nix
     ./apps/zsh.nix
   ];
