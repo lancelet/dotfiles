@@ -35,7 +35,12 @@
       
       # Add ghcup binaries if installed
       if [ -d "$HOME/.ghcup/bin" ]; then
-	export PATH="$PATH:$HOME/.ghcup/bin"
+        export PATH="$PATH:$HOME/.ghcup/bin"
+      fi
+      
+      # Add cabal binaries if installed
+      if [ -d "$HOME/.cabal/bin" ]; then
+        export PATH="$PATH:$HOME/.cabal/bin" 
       fi
 
       # OpenJDK version
